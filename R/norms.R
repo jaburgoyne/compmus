@@ -42,7 +42,6 @@ compmus_normalise <- compmus_normalize <- function(v, method = 'euclidean')
     METHODS <-
         list(
             identity  = identity,
-            id        = identity,
             harmonic  = harmonic,
             manhattan = manhattan,
             L1        = manhattan,
