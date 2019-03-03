@@ -1,0 +1,23 @@
+template:
+    params:
+        bootswatch: flatly
+
+reference:
+  - title: Spotify Audio Analysis
+    desc: ~
+    contents:
+      - '`get_tidy_audio_analysis`'
+  - title: Norms and Distances
+    desc: ~
+    contents:
+      - '`compmus_normalise`'
+      - '`compmus_long_distance`'
+  - title: Summarisation
+    desc: ~
+    contents:
+      - '`compmus_align`'
+      - '`compmus_summarise`'
+  - title: Unwrapping
+    desc: ~
+    contents:
+      - '`compmus_gather_chroma`'
