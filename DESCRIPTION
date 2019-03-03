@@ -1,0 +1,28 @@
+Package: compmus
+Type: Package
+Title: Support Functions for Computational Musicology
+Version: 0.0.0.9000
+Authors@R: person(
+               c('John', 'Ashley'), 'Burgoyne', 
+               email = 'j.a.burgoyne@uva.nl', 
+               role = c('aut', 'cre'))
+Description: Extra functions to facilitate student projects for the author's
+    Computational Musicology course. 
+License: BSD_3_clause + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr (>= 0.7),
+    forcats (>= 0.3),
+    magrittr (>= 1.5),
+    purrr (>= 0.3),
+    rlang (>= 0.3),
+    spotifyr (>= 1.1),
+    tibble (>= 2.0),
+    tidyr (>= 0.8)
+Suggests: 
+    knitr,
+    rmarkdown,
+    tidyverse
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1
