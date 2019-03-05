@@ -89,7 +89,7 @@
 <div id="set-up" class="section level2">
 <h2 class="hasAnchor">
 <a href="#set-up" class="anchor"></a>Set-up</h2>
-<p>We also begin by loading the libraries we need for analysis. Notice that I’ve added a secret <code>spotify.R</code> file to keep my login credentials secret.</p>
+<p>We begin by loading the libraries we need for analysis.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)</a></code></pre></div>
 <pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.0       ✔ purrr   0.3.0  
@@ -101,16 +101,12 @@
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(spotifyr)</a>
 <a class="sourceLine" id="cb5-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(compmus)</a></code></pre></div>
-</div>
-<div id="functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#functions" class="anchor"></a>Functions</h2>
-<p>We need some helper functions this week, which I have also added to <code>spotify.R</code>.</p>
+<p>In order for the code below to run, it is also necessary to set up Spotify login credentials for <code>spotifyr</code>.</p>
 </div>
 <div id="chromagrams" class="section level2">
 <h2 class="hasAnchor">
 <a href="#chromagrams" class="anchor"></a>Chromagrams</h2>
-<p>One of the new helper functions, <code>get_tidy_audio_analysis</code>, does just what it says, for one track at a time. Spotify’s audio analysis is thorough, and basic <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/">documentation</a> is available for everything in it.</p>
+<p>One of the helper functions this week, <code>get_tidy_audio_analysis</code>, does just what it says, for one track at a time. Spotify’s audio analysis is thorough, and basic <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/">documentation</a> is available for everything in it.</p>
 <p>Let’s pull down the analysis of a recording of Steve Reich’s ‘Music for Pieces of Wood’ (well worth a listen if you don’t know the piece). For reasons that will become clearer next week, one needs to <code>select</code> the desired field out of the analysis – in this case, <code>segments</code> – and then <code>unnest</code> it.</p>
 <p>Spotify segments have a lot of information inside them, but this week, we’ll focus just on <code>start</code>, <code>duration</code>, and <code>pitches</code>: the three tools we need to make a chromagram.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">wood &lt;-<span class="st"> </span></a>
@@ -258,7 +254,6 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#set-up">Set-up</a></li>
-      <li><a href="#functions">Functions</a></li>
       <li><a href="#chromagrams">Chromagrams</a></li>
       <li><a href="#dynamic-time-warping">Dynamic Time Warping</a></li>
       </ul>

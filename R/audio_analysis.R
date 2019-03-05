@@ -39,27 +39,22 @@ get_tidy_audio_analysis <- function(track_uri, ...)
                 purrr::map(
                     segments,
                     . %>%
-                        purrr::transpose() %>% tibble::as_tibble() %>%
-                        tidyr::unnest(.preserve = c(pitches, timbre)) %>%
+                        tibble::as_tibble() %>%
                         dplyr::mutate(
                             pitches =
                                 purrr::map(
                                     pitches,
-                                    . %>%
-                                        purrr::flatten_dbl() %>%
-                                        purrr::set_names(
-                                            c(
-                                                'C', 'C#|Db', 'D', 'D#|Eb',
-                                                'E', 'F', 'F#|Gb', 'G',
-                                                'G#|Ab', 'A', 'A#|Bb', 'B'))),
+                                    purrr::set_names,
+                                    c(
+                                        'C', 'C#|Db', 'D', 'D#|Eb',
+                                        'E', 'F', 'F#|Gb', 'G',
+                                        'G#|Ab', 'A', 'A#|Bb', 'B')),
                             timbre =
                                 purrr::map(
                                     timbre,
-                                    . %>%
-                                        purrr::flatten_dbl() %>%
-                                        purrr::set_names(
-                                            c(
-                                                'c01', 'c02', 'c03', 'c04',
-                                                'c05', 'c06', 'c07', 'c08',
-                                                'c09', 'c10', 'c11', 'c12'))))))
+                                    purrr::set_names,
+                                    c(
+                                        'c01', 'c02', 'c03', 'c04',
+                                        'c05', 'c06', 'c07', 'c08',
+                                        'c09', 'c10', 'c11', 'c12')))))
 }

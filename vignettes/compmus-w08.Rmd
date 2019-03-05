@@ -13,7 +13,7 @@ Welcome to your first R Markdown file of Computational Musicology! RStudio has m
 
 ## Set-up
 
-We also begin by loading the libraries we need for analysis. Notice that I've added a secret `spotify.R` file to keep my login credentials secret.
+We begin by loading the libraries we need for analysis. 
 
 ```{r}
 library(tidyverse)
@@ -21,13 +21,11 @@ library(spotifyr)
 library(compmus)
 ```
 
-## Functions
-
-We need some helper functions this week, which I have also added to `spotify.R`. 
+In order for the code below to run, it is also necessary to set up Spotify login credentials for `spotifyr`.
 
 ## Chromagrams
 
-One of the new helper functions, `get_tidy_audio_analysis`, does just what it says, for one track at a time. Spotify's audio analysis is thorough, and basic [documentation][2] is available for everything in it.
+One of the helper functions this week, `get_tidy_audio_analysis`, does just what it says, for one track at a time. Spotify's audio analysis is thorough, and basic [documentation][2] is available for everything in it.
 
 Let's pull down the analysis of a recording of Steve Reich's 'Music for Pieces of Wood' (well worth a listen if you don't know the piece). For reasons that will become clearer next week, one needs to `select` the desired field out of the analysis -- in this case, `segments` -- and then `unnest` it.
 

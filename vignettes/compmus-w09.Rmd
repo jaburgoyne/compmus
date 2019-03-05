@@ -11,13 +11,13 @@ vignette: >
 
 ## Set-up
 
-This week, I have expanded `spotify.R` and moved all of the functions, including new functions, there.
-
 ```{r}
 library(tidyverse)
 library(spotifyr)
 library(compmus)
 ```
+
+In order for the code below to run, it is also necessary to set up Spotify login credentials for `spotifyr`.
 
 ## New functions
 
