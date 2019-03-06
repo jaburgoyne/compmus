@@ -2,9 +2,12 @@
 % Please edit documentation in R/norms.R
 \name{compmus_normalise}
 \alias{compmus_normalise}
+\alias{compmus_normalize}
 \title{Normalise vectors}
 \usage{
 compmus_normalise(v, method = "euclidean")
+
+compmus_normalize(v, method = "euclidean")
 }
 \arguments{
 \item{v}{A numeric vector.}
@@ -28,6 +31,11 @@ The following methods are supported.
     \item{\code{aitchison},\code{clr}}{Aitchison's clr transformation.}
     \item{\code{softmax}}{Softmax.}}
 }
+\section{Functions}{
+\itemize{
+\item \code{compmus_normalize}: Normalize vectors
+}}
+
 \examples{
 library(tidyverse)
 get_tidy_audio_analysis('6IQILcYkN2S2eSu5IHoPEH') \%>\%

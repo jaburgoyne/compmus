@@ -26,7 +26,7 @@
 #' get_tidy_audio_analysis('6IQILcYkN2S2eSu5IHoPEH') %>%
 #'     select(segments) %>% unnest(segments) %>%
 #'     mutate(pitches = map(pitches, compmus_normalise, 'euclidean'))
-compmus_normalise <- compmus_normalize <- function(v, method = 'euclidean')
+compmus_normalise <- function(v, method = 'euclidean')
 {
     ## Supported functions
 
@@ -61,6 +61,10 @@ compmus_normalise <- compmus_normalize <- function(v, method = 'euclidean')
         stop('The method name is ambiguous or the method is unsupported.')
 }
 
+#' @describeIn compmus_normalise Normalize vectors
+#' @export
+compmus_normalize <- compmus_normalise
+
 #' Pairwise distances in long format
 #'
 #' We use a number of distance measures in Computational Musicology.
@@ -77,7 +81,8 @@ compmus_normalise <- compmus_normalize <- function(v, method = 'euclidean')
 #' \item{\code{cosine}}{Cosine pseudo-distance.} \item{\code{angular}}{Angular
 #' distance.} \item{\code{aitchison}}{Aitchison distance.} }
 #'
-#' @param xdat,ydat,dat Data frames.
+#' @param xdat,ydat,dat Data frames with \code{start} and \code{duration}
+#'   columns.
 #' @param feature An (unquoted) column name over which to compute distances.
 #' @param method A character string indicating which distance metric to use (see
 #'   Details). Default is Euclidean distance.
@@ -111,7 +116,7 @@ compmus_long_distance <- function(xdat, ydat, feature, method = 'euclidean')
     ## Supported functions
 
     manhattan <- function(x, y) sum(abs(x - y))
-    euclidean <- function(x, y) sqrt(sum((x - y) ^ 2))
+    euclidean <- function(x, y) sqrt(sum((x - y)^2))
     chebyshev <- function(x, y) max(abs(x - y))
     pearson   <- function(x, y) 1 - cor(x, y)
     cosine    <- function(x, y)
@@ -164,4 +169,71 @@ compmus_self_similarity <- function(dat, feature, method = 'euclidean')
 {
     feature <- enquo(feature)
     compmus_long_distance(dat, dat, !!feature, method)
+}
+
+#' Match chroma vectors against templates
+#'
+#' Compares chroma vectors in a data frame against a list of templates, most
+#' likely key or chord profiles.
+#'
+#' @param dat A data frame containing chroma vectors in a \code{pitches} column.
+#' @param templates A data frame with a \code{name} column for each template and
+#'   the templates themselves in a \code{template} column.
+#' @param method A character string indicating which distance metric to use (see
+#'   \code{\link{compmus_long_distance}}). Default is cosine distance.
+#' @param norm An optional character string indicating the method for
+#'   pre-normalising each vector with \code{\link{compmus_normalise}}. Default
+#'   is Euclidean.
+
+#' @return A tibble with columns \code{start}, \code{duration}, \code{name}, and
+#'   \code{d}.
+#'
+#' @importFrom magrittr %>%
+#' @export
+#'
+#' @examples
+#' library(tidyverse)
+#' circshift <- function(v, n) {if (n == 0) v else c(tail(v, n), head(v, -n))}
+#' major_chord <-
+#'     c(1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0)
+#' minor_chord <-
+#'     c(1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+#' chord_templates <-
+#'     tribble(
+#'         ~name   , ~template,
+#'         'D:min' , circshift(minor_chord,  2),
+#'         'F:maj' , circshift(major_chord,  5),
+#'         'A:min' , circshift(minor_chord,  9),
+#'         'C:maj' , circshift(major_chord,  0),
+#'         'E:min' , circshift(minor_chord,  4),
+#'         'G:maj' , circshift(major_chord,  7),
+#'         'B:min' , circshift(minor_chord, 11))
+#'
+#' get_tidy_audio_analysis('5UVsbUV0Kh033cqsZ5sLQi') %>%
+#'     compmus_align(sections, segments) %>%
+#'     select(sections) %>% unnest(sections) %>%
+#'     mutate(
+#'         pitches =
+#'             map(segments,
+#'                 compmus_summarise, pitches,
+#'                 method = 'mean', norm = 'manhattan')) %>%
+#'     compmus_match_pitch_template(chord_templates, 'euclidean', 'manhattan')
+compmus_match_pitch_template <- function(dat, templates, method = 'cosine', norm = 'euclidean')
+{
+    compmus_long_distance(
+        dat %>%
+            dplyr::mutate(
+                pitches = purrr::map(pitches, compmus_normalise, norm)),
+        templates %>%
+            dplyr::transmute(
+                start = name,
+                duration = 1,
+                pitches = purrr::map(template, compmus_normalise, norm)),
+        feature = pitches,
+        method = method) %>%
+        dplyr::transmute(
+            start = xstart,
+            duration = xduration,
+            name = factor(ystart, levels = purrr::pluck(templates, 'name')),
+            d)
 }

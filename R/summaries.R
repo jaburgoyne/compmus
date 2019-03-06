@@ -43,7 +43,7 @@
 #'                 segments,
 #'                 compmus_summarise, pitches,
 #'                 method = 'rms', norm = 'euclidean'))
-compmus_summarise <- compmus_summarize <- function(dat, feature, method = 'mean', norm = 'id')
+compmus_summarise <- function(dat, feature, method = 'mean', norm = 'id')
 {
     feature <- enquo(feature)
 
@@ -92,6 +92,10 @@ compmus_summarise <- compmus_summarize <- function(dat, feature, method = 'mean'
     else
         stop('The method name is ambiguous or the method is unsupported.')
 }
+
+#' @describeIn compmus_summarise Summarize possibly vector-valued columns
+#' @export
+compmus_summarize <- compmus_summarise
 
 #' @importFrom magrittr %>%
 .compmus_align_helper <- function(start0, duration0, inner)

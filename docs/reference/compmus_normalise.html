@@ -65,7 +65,7 @@ common alternative names." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
       </span>
     </div>
 
@@ -92,6 +92,9 @@ common alternative names." />
     </li>
     <li>
       <a href="../articles/compmus-w09.html">Week 9 · Structure Analysis · Self-Similarity Matrices</a>
+    </li>
+    <li>
+      <a href="../articles/compmus-w10.html">Week 10 · Key and Chord Estimation</a>
     </li>
   </ul>
 </li>
@@ -124,7 +127,9 @@ common alternative names.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>compmus_normalise</span>(<span class='no'>v</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"euclidean"</span>)</pre>
+    <pre class="usage"><span class='fu'>compmus_normalise</span>(<span class='no'>v</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"euclidean"</span>)
+
+<span class='fu'>compmus_normalize</span>(<span class='no'>v</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"euclidean"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,6 +155,12 @@ Details). Default is the Euclidean norm.</p></td>
     <dt><code>chebyshev</code>,<code>maximum</code></dt><dd><p>Chebyshev (maximum) norm.</p></dd>
     <dt><code>aitchison</code>,<code>clr</code></dt><dd><p>Aitchison's clr transformation.</p></dd>
     <dt><code>softmax</code></dt><dd><p>Softmax.</p></dd></dl>
+    
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    <ul>
+<li><p><code>compmus_normalize</code>: Normalize vectors</p></li>
+</ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -178,6 +189,8 @@ Details). Default is the Euclidean norm.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#functions">Functions</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

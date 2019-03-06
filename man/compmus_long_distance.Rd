@@ -10,7 +10,8 @@ compmus_long_distance(xdat, ydat, feature, method = "euclidean")
 compmus_self_similarity(dat, feature, method = "euclidean")
 }
 \arguments{
-\item{xdat, ydat, dat}{Data frames.}
+\item{xdat, ydat, dat}{Data frames with \code{start} and \code{duration}
+columns.}
 
 \item{feature}{An (unquoted) column name over which to compute distances.}
 

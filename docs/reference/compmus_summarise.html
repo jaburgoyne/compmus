@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
       </span>
     </div>
 
@@ -90,6 +90,9 @@
     </li>
     <li>
       <a href="../articles/compmus-w09.html">Week 9 · Structure Analysis · Self-Similarity Matrices</a>
+    </li>
+    <li>
+      <a href="../articles/compmus-w10.html">Week 10 · Key and Chord Estimation</a>
     </li>
   </ul>
 </li>
@@ -120,7 +123,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>compmus_summarise</span>(<span class='no'>dat</span>, <span class='no'>feature</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>norm</span> <span class='kw'>=</span> <span class='st'>"id"</span>)</pre>
+    <pre class="usage"><span class='fu'>compmus_summarise</span>(<span class='no'>dat</span>, <span class='no'>feature</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>norm</span> <span class='kw'>=</span> <span class='st'>"id"</span>)
+
+<span class='fu'>compmus_summarize</span>(<span class='no'>dat</span>, <span class='no'>feature</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"mean"</span>, <span class='kw'>norm</span> <span class='kw'>=</span> <span class='st'>"id"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,6 +153,12 @@ pre-normalising each vector with <code><a href='compmus_normalise.html'>compmus_
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The following methods are supported.</p>
+    
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    <ul>
+<li><p><code>compmus_summarize</code>: Summarize possibly vector-valued columns</p></li>
+</ul>
     
     <h2 class="hasAnchor" id="central-tendency"><a class="anchor" href="#central-tendency"></a>Central Tendency</h2>
 
@@ -199,6 +210,8 @@ pre-normalising each vector with <code><a href='compmus_normalise.html'>compmus_
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#functions">Functions</a></li>
 
       <li><a href="#central-tendency">Central Tendency</a></li>
 

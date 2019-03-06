@@ -2,9 +2,12 @@
 % Please edit documentation in R/summaries.R
 \name{compmus_summarise}
 \alias{compmus_summarise}
+\alias{compmus_summarize}
 \title{Summarise possibly vector-valued columns}
 \usage{
 compmus_summarise(dat, feature, method = "mean", norm = "id")
+
+compmus_summarize(dat, feature, method = "mean", norm = "id")
 }
 \arguments{
 \item{dat}{A tibble containing list columns.}
@@ -23,6 +26,11 @@ Summarises vector-based features in nested list columns.
 \details{
 The following methods are supported.
 }
+\section{Functions}{
+\itemize{
+\item \code{compmus_summarize}: Summarize possibly vector-valued columns
+}}
+
 \section{Central Tendency}{
 
 

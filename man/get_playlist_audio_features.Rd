@@ -13,10 +13,6 @@ get_playlist_audio_features(username, playlist_uris,
 \item{playlist_uris}{Character vector of Spotify playlist uris associated with the given \code{username}. Can be found within the Spotify App}
 
 \item{access_token}{Spotify Web API token. Defaults to spotifyr::get_spotify_access_token()}
-
-\item{parallelize}{Boolean determining to run in parallel or not. Defaults to \code{TRUE}.}
-
-\item{future_plan}{String determining how `future()`s are resolved when `parallelize == TRUE`. Defaults to \code{multiprocess}.}
 }
 \description{
 This function, formerly part of \code{spotifyr}, returns the popularity and audio features for every song for a given set of playlists on Spotify

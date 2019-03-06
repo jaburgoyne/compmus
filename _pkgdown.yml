@@ -7,12 +7,14 @@ reference:
     desc: ~
     contents:
       - '`get_tidy_audio_analysis`'
+      - '`add_audio_analysis`'
       - '`get_playlist_audio_features`'
   - title: Norms and Distances
     desc: ~
     contents:
       - '`compmus_normalise`'
       - '`compmus_long_distance`'
+      - '`compmus_match_pitch_template`'
   - title: Summarisation
     desc: ~
     contents:

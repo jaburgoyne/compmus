@@ -250,8 +250,6 @@
 #' This function, formerly part of \code{spotifyr}, returns the popularity and audio features for every song for a given set of playlists on Spotify
 #' @param username String of Spotify username. Can be found on the Spotify app. (See http://rcharlie.net/sentify/user_uri.gif for example)
 #' @param playlist_uris Character vector of Spotify playlist uris associated with the given \code{username}. Can be found within the Spotify App
-#' @param parallelize Boolean determining to run in parallel or not. Defaults to \code{TRUE}.
-#' @param future_plan String determining how `future()`s are resolved when `parallelize == TRUE`. Defaults to \code{multiprocess}.
 #' @param access_token Spotify Web API token. Defaults to spotifyr::get_spotify_access_token()
 #' @keywords track audio features playlists
 #' @export

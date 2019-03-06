@@ -58,3 +58,29 @@ get_tidy_audio_analysis <- function(track_uri, ...)
                                         'c05', 'c06', 'c07', 'c08',
                                         'c09', 'c10', 'c11', 'c12')))))
 }
+
+#' Add Spotify audio analysis to a data frame
+#'
+#' Fetches and joins the Spotify audio analysis for every Spotify URI in a data
+#' frame.
+#'
+#' @param df A data frame with a \code{track_uri} column.
+#' @param ... Parameters passed on to \code{\link{get_tidy_audio_analysis}}.
+#'
+#' @seealso \code{\link{get_tidy_audio_analysis}}
+#'
+#' @importFrom magrittr %>%
+#' @export
+#'
+#' @examples
+#' library(tidyverse)
+#' get_playlist_audio_features('spotify', '37i9dQZF1DX21bRPJuEN7r') %>%
+#'     slice(1:5) %>%
+#'     add_audio_analysis
+add_audio_analysis <- function(df, ...)
+{
+    df %>%
+        dplyr::mutate(
+            analysis = purrr::map(track_uri, get_tidy_audio_analysis, ...)) %>%
+        tidyr::unnest()
+}
