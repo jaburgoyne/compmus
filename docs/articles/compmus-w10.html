@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9002</span>
       </span>
     </div>
 
@@ -60,6 +60,9 @@
     </li>
     <li>
       <a href="../articles/compmus-w10.html">Week 10 · Key and Chord Estimation</a>
+    </li>
+    <li>
+      <a href="../articles/compmus-w11.html">Week 11 · Classification</a>
     </li>
   </ul>
 </li>
@@ -326,7 +329,7 @@
 <a class="sourceLine" id="cb10-23" title="23">        <span class="dt">colour =</span> <span class="st">'Genre'</span>, </a>
 <a class="sourceLine" id="cb10-24" title="24">        <span class="dt">size =</span> <span class="st">'Duration (min)'</span>, </a>
 <a class="sourceLine" id="cb10-25" title="25">        <span class="dt">alpha =</span> <span class="st">'Volume (dBFS)'</span>)</a></code></pre></div>
-<pre><code>## Warning: Removed 10 rows containing missing values (geom_point).</code></pre>
+<pre><code>## Warning: Removed 11 rows containing missing values (geom_point).</code></pre>
 <p><img src="compmus-w10_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 <p>When working with vector-valued features like chroma or timbre, we need to use functions from the previous weeks. Here is an example of comparing average timbre coefficients in bebop and big band. Coefficient 6 looks like the most promising marker distinguishing these genres, but we should verify that with cepstrograms and listening tests of specific pieces, supported by the Spotify documentation for its timbre features.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">jazz <span class="op">%&gt;%</span><span class="st"> </span></a>

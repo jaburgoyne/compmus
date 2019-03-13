@@ -24,3 +24,4 @@ reference:
     desc: ~
     contents:
       - '`compmus_gather_chroma`'
+      - '`compmus_c_transpose`'

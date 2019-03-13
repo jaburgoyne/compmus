@@ -26,6 +26,7 @@
 #'   (see Details). Default is the arithmetic mean.
 #' @param norm An optional character string indicating the method for
 #'   pre-normalising each vector with \code{\link{compmus_normalise}}.
+#' @param na.rm Remove NA values?
 #'
 #' @importFrom stats sd
 #' @importFrom magrittr %>%
@@ -43,7 +44,7 @@
 #'                 segments,
 #'                 compmus_summarise, pitches,
 #'                 method = 'rms', norm = 'euclidean'))
-compmus_summarise <- function(dat, feature, method = 'mean', norm = 'id')
+compmus_summarise <- function(dat, feature, method = 'mean', norm = 'id', na.rm = FALSE)
 {
     feature <- enquo(feature)
 
@@ -86,7 +87,7 @@ compmus_summarise <- function(dat, feature, method = 'mean', norm = 'id')
                         (METHODS[[i]][[1]]) %>%
                         dplyr::bind_rows())) %>%
         tidyr::unnest(!!feature) %>%
-        dplyr::summarise_all(METHODS[[i]][[2]]) %>%
+        dplyr::summarise_all(METHODS[[i]][[2]], na.rm = na.rm) %>%
         purrr::map_dbl(1) %>%
         (METHODS[[i]][[3]])
     else

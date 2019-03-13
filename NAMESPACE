@@ -2,6 +2,7 @@
 
 export(add_audio_analysis)
 export(compmus_align)
+export(compmus_c_transpose)
 export(compmus_gather_chroma)
 export(compmus_gather_timbre)
 export(compmus_long_distance)

@@ -5,9 +5,11 @@
 \alias{compmus_summarize}
 \title{Summarise possibly vector-valued columns}
 \usage{
-compmus_summarise(dat, feature, method = "mean", norm = "id")
+compmus_summarise(dat, feature, method = "mean", norm = "id",
+  na.rm = FALSE)
 
-compmus_summarize(dat, feature, method = "mean", norm = "id")
+compmus_summarize(dat, feature, method = "mean", norm = "id",
+  na.rm = FALSE)
 }
 \arguments{
 \item{dat}{A tibble containing list columns.}
@@ -19,6 +21,8 @@ compmus_summarize(dat, feature, method = "mean", norm = "id")
 
 \item{norm}{An optional character string indicating the method for
 pre-normalising each vector with \code{\link{compmus_normalise}}.}
+
+\item{na.rm}{Remove NA values?}
 }
 \description{
 Summarises vector-based features in nested list columns.

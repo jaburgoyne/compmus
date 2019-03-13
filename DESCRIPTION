@@ -1,7 +1,7 @@
 Package: compmus
 Type: Package
 Title: Support Functions for Computational Musicology
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: person(
                c('John', 'Ashley'), 'Burgoyne', 
                email = 'j.a.burgoyne@uva.nl', 
@@ -25,6 +25,7 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
+    tidymodels,
     tidyverse
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
