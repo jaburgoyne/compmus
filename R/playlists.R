@@ -230,7 +230,7 @@
 }
 
 .check_uri <- function(track_uri) {
-    is_uri <- function(x) {
+    .is_uri <- function(x) {
         nchar(x) == 22 &
             !stringr::str_detect(x, ' ') &
             stringr::str_detect(x, '[[:digit:]]') &
@@ -240,7 +240,7 @@
 
     track_uri <- gsub('spotify:track:', '', track_uri)
 
-    if (!is_uri(track_uri)) {
+    if (!.is_uri(track_uri)) {
         stop('Error: Must enter a valid uri')
     }
 }
@@ -261,6 +261,9 @@
 #' }
 
 get_playlist_audio_features <- function(username, playlist_uris, access_token = spotifyr::get_spotify_access_token()) {
+
+    # if (exists('get_playlist_audio_features', 'package:spotifyr'))
+    #     return(spotifyr::get_playlist_audio_features(username, playlist_uris, access_token))
 
     playlists <- .get_playlists(username, playlist_uris, access_token = access_token)
     tracks <- .get_playlist_tracks(playlists, access_token = access_token)

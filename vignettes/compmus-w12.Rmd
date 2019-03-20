@@ -1,0 +1,117 @@
+---
+title: "Week 12 · Similarity and Clustering"
+author: "John Ashley Burgoyne"
+date: "20 March 2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Set-up
+
+All of the tools that are strictly necessary for clustering are available in base R. For full flexibility, however, the `protoclust` packages is recommended. If you want to explore further possibilities, look at the `cluster` package.
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(protoclust)
+library(spotifyr)
+library(compmus)
+```
+
+In order for the code below to run, it is also necessary to set up Spotify login credentials for `spotifyr`.
+
+## Clustering
+
+The Bibliothèque nationale de France (BnF) makes a large portion of its [music collection](https://gallica.bnf.fr/html/und/bnf-collection-sonore) available on Spotify, including an eclectic collection of curated playlists. The defining musical characteristics of these playlists are sometimes unclear: for example, they have a Halloween playlist. Perhaps clustering can help us organise and describe what kinds of musical selections make it into the BnF's playlist.
+
+We begin by loading the playlist and summarising the pitch and timbre features, just like last week. Note that, also like last week, we use `compmus_c_transpose` to transpose the chroma features so that -- depending on the accuracy of Spotify's key estimation -- we can interpret them as if every piece were in C major or C minor. Although this example includes no delta features, try adding them yourself if you are feeling comfortable with R!
+
+```{r}
+halloween <- 
+    get_playlist_audio_features('bnfcollection', '1vsoLSK3ArkpaIHmUaF02C') %>% 
+    add_audio_analysis %>% 
+    mutate(
+        segments = 
+            map2(segments, key, compmus_c_transpose)) %>% 
+    mutate(
+        pitches = 
+            map(segments, 
+                compmus_summarise, pitches, 
+                method = 'mean', norm = 'manhattan'),
+        timbre =
+            map(
+                segments,
+                compmus_summarise, timbre,
+                method = 'mean')) %>% 
+    mutate(pitches = map(pitches, compmus_normalise, 'clr')) %>% 
+    mutate_at(vars(pitches, timbre), map, bind_rows) %>% 
+    unnest(pitches, timbre)
+```
+
+### Pre-processing
+
+Remember that in the `tidyverse` approach, we can preprocess data with a `recipe`. In this case, instead of a label that we want to predict, we start with a label that will make the cluster plots readable. For most projects, the track name will be the best choice (although feel free to experiment with others). The code below uses `str_trunc` to clip the track name to a maximum of 20 characters, again in order to improve readability. The other change from last week is `column_to_rownames`, which is necessary for the plot labels to appear correctly.
+
+Last week we also discussed that although standardising variables with `step_center` to make the mean 0 and `step_scale` to make the standard deviation 1 is the most common approach, sometimes `step_range` is a better alternative, which squashes or stretches every features so that it ranges from 0 to 1. For most classification algorithms, the difference is small; for clustering, the differences can be more noticable. It's wise to try both.
+
+```{r}
+halloween_juice <- 
+    recipe(track_name ~
+               danceability +
+               energy +
+               loudness +
+               speechiness +
+               acousticness +
+               instrumentalness +
+               liveness +
+               valence +
+               tempo +
+               duration_ms +
+               C + `C#|Db` + D + `D#|Eb` +
+               E + `F` + `F#|Gb` + G +
+               `G#|Ab` + A + `A#|Bb` + B +
+               c01 + c02 + c03 + c04 + c05 + c06 +
+               c07 + c08 + c09 + c10 + c11 + c12,
+           data = halloween) %>% 
+    step_center(all_predictors()) %>%
+    step_scale(all_predictors()) %>%
+    # step_range(all_predictors()) %>% 
+    prep(halloween %>% mutate(track_name = str_trunc(track_name, 20))) %>% 
+    juice %>% 
+    column_to_rownames('track_name')
+```
+
+### Computing distances
+
+When using `step_center` and `step_scale`, then the Euclidean distance is usual. When using `step_range`, then the Manhattan distance is also a good choice: this combination is known as *Gower's distance* and has a long history in clustering.
+
+```{r}
+halloween_dist <- dist(halloween_juice, method = 'euclidean')
+```
+
+### Hierarchical clustering
+
+As you learned in your DataCamp exercises this week, there are three primary types of *linkage*: single, average, and complete. Usually average or complete give the best results. We can use the `ggendrogram` function to make a more standardised plot of the results.
+
+```{r}
+hclust(halloween_dist, method = 'single') %>% plot
+```
+
+A more recent -- and often superior -- linkage function is *minimax linkage*, available in the `protoclust` package. It is more akin to $k$-means: at each step, it chooses an ideal centroid for every cluster such that the maximum distance between centroids and all members of their respective clusters is as small as possible.
+
+```{r}
+protoclust(halloween_dist) %>% plot
+```
+
+Try all four of these linkages. Which one looks the best? Which one *sounds* the best (when you listen to the tracks on Spotify)? Can you guess which features are separating the clusters? 
+
+### *k*-Means
+
+Unlike hierarchical clustering, *k*-means clustering returns a different results every time. Nonetheless, it can be a useful reality check on the stability of the clusters from hierarchical clustering.
+
+```{r}
+kmeans(halloween_juice, 4)
+```
