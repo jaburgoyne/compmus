@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9004</span>
       </span>
     </div>
 
@@ -99,21 +99,21 @@
 <a href="#set-up" class="anchor"></a>Set-up</h2>
 <p>All of the tools that are strictly necessary for clustering are available in base R. For full flexibility, however, the <code>protoclust</code> packages is recommended. If you want to explore further possibilities, look at the <code>cluster</code> package.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
 <pre><code>## ✔ ggplot2 3.1.0       ✔ purrr   0.3.2  
 ## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
 ## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
 ## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidymodels)</a></code></pre></div>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────── tidymodels 0.0.2 ──</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────── tidymodels 0.0.2 ──</code></pre>
 <pre><code>## ✔ broom     0.5.1     ✔ recipes   0.1.4
 ## ✔ dials     0.0.2     ✔ rsample   0.0.4
 ## ✔ infer     0.4.0     ✔ yardstick 0.0.3
 ## ✔ parsnip   0.0.1</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────── tidymodels_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────── tidymodels_conflicts() ──
 ## ✖ scales::discard() masks purrr::discard()
 ## ✖ dplyr::filter()   masks stats::filter()
 ## ✖ recipes::fixed()  masks stringr::fixed()
@@ -206,58 +206,58 @@
 <a href="#k-means" class="anchor"></a><em>k</em>-Means</h3>
 <p>Unlike hierarchical clustering, <em>k</em>-means clustering returns a different results every time. Nonetheless, it can be a useful reality check on the stability of the clusters from hierarchical clustering.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/kmeans">kmeans</a></span>(halloween_juice, <span class="dv">4</span>)</a></code></pre></div>
-<pre><code>## K-means clustering with 4 clusters of sizes 2, 7, 6, 5
+<pre><code>## K-means clustering with 4 clusters of sizes 5, 6, 2, 7
 ## 
 ## Cluster means:
 ##   danceability      energy   loudness speechiness acousticness
-## 1   0.09605479  0.07213439  0.5262965 -0.48145689    0.1384264
-## 2  -1.20286793 -0.65481004 -0.8180242 -0.69484670    0.1960202
-## 3   0.83101946  1.15415030  0.6751792  0.92760310   -0.5974045
-## 4   0.64836983 -0.49710006  0.1245002  0.05224442    0.3870865
+## 1   0.64836983 -0.49710006  0.1245002  0.05224442    0.3870865
+## 2   0.83101946  1.15415030  0.6751792  0.92760310   -0.5974045
+## 3   0.09605479  0.07213439  0.5262965 -0.48145689    0.1384264
+## 4  -1.20286793 -0.65481004 -0.8180242 -0.69484670    0.1960202
 ##   instrumentalness    liveness    valence       tempo duration_ms
-## 1      1.105519968  0.23473711  0.1471131 -0.02038562 -0.12646175
-## 2     -0.002641033  0.08514692 -1.0319293 -0.13884228  0.36331256
-## 3     -0.059112255 -0.69972953  0.9450583  0.65014905 -0.32295850
-## 4     -0.367575835  0.62657491  0.2517858 -0.57764542 -0.07050269
+## 1     -0.367575835  0.62657491  0.2517858 -0.57764542 -0.07050269
+## 2     -0.059112255 -0.69972953  0.9450583  0.65014905 -0.32295850
+## 3      1.105519968  0.23473711  0.1471131 -0.02038562 -0.12646175
+## 4     -0.002641033  0.08514692 -1.0319293 -0.13884228  0.36331256
 ##             C       C#|Db          D      D#|Eb          E          F
-## 1  0.44130883 -1.77309313  1.3525471 -0.5766835  1.7594651 -0.5345336
-## 2  0.03424285  0.12208631 -0.2036450  0.6233577  0.4252545  0.3213209
-## 3  0.10302548  0.02907237  0.1496190 -0.1653766 -0.1800450  0.3505671
-## 4 -0.34809410  0.50342957 -0.4354586 -0.4435755 -1.0830882 -0.6567164
+## 1 -0.34809410  0.50342957 -0.4354586 -0.4435755 -1.0830882 -0.6567164
+## 2  0.10302548  0.02907237  0.1496190 -0.1653766 -0.1800450  0.3505671
+## 3  0.44130883 -1.77309313  1.3525471 -0.5766835  1.7594651 -0.5345336
+## 4  0.03424285  0.12208631 -0.2036450  0.6233577  0.4252545  0.3213209
 ##        F#|Gb           G         G#|Ab          A       A#|Bb          B
-## 1 -0.4481507  0.17806751 -2.0105648218  1.2442431 -1.91137400  1.8355507
-## 2 -0.6423839 -0.09781781  0.0001152723 -0.3356205  0.03918216 -0.3162802
-## 3  0.4983636 -0.34465054 -0.1988474363 -0.2919318 -0.06307911  0.2556722
-## 4  0.4805615  0.47929858  1.0426814710  0.3224897  0.78538950 -0.5982347
+## 1  0.4805615  0.47929858  1.0426814710  0.3224897  0.78538950 -0.5982347
+## 2  0.4983636 -0.34465054 -0.1988474363 -0.2919318 -0.06307911  0.2556722
+## 3 -0.4481507  0.17806751 -2.0105648218  1.2442431 -1.91137400  1.8355507
+## 4 -0.6423839 -0.09781781  0.0001152723 -0.3356205  0.03918216 -0.3162802
 ##          c01        c02        c03         c04        c05        c06
-## 1  0.9626355  1.2067481  1.7439574  1.40708521  0.5926782  0.1993832
-## 2 -0.2106414 -0.2500977  0.3978360 -0.81726256  0.1383504 -0.8499680
-## 3  0.5016825  0.3531571 -0.5880053  0.53833638 -0.5492119  0.2363025
-## 4 -0.6921753 -0.5563510 -0.5489469 -0.06467015  0.2282925  0.8266389
+## 1 -0.6921753 -0.5563510 -0.5489469 -0.06467015  0.2282925  0.8266389
+## 2  0.5016825  0.3531571 -0.5880053  0.53833638 -0.5492119  0.2363025
+## 3  0.9626355  1.2067481  1.7439574  1.40708521  0.5926782  0.1993832
+## 4 -0.2106414 -0.2500977  0.3978360 -0.81726256  0.1383504 -0.8499680
 ##            c07        c08        c09        c10        c11        c12
-## 1 -0.998983423 -1.4265712 -0.9808208 -0.4151848  0.5479418 -0.2223407
-## 2 -0.001680086  0.1770037  0.4068887 -0.6793797  0.9025014  0.6023293
-## 3  0.472074517 -0.0128682 -0.8325366  0.5484503 -0.4237820 -0.3920377
-## 4 -0.164543931  0.3382651  0.8217280  0.4590651 -0.9741404 -0.2838794
+## 1 -0.164543931  0.3382651  0.8217280  0.4590651 -0.9741404 -0.2838794
+## 2  0.472074517 -0.0128682 -0.8325366  0.5484503 -0.4237820 -0.3920377
+## 3 -0.998983423 -1.4265712 -0.9808208 -0.4151848  0.5479418 -0.2223407
+## 4 -0.001680086  0.1770037  0.4068887 -0.6793797  0.9025014  0.6023293
 ## 
 ## Clustering vector:
 ## I Put a Spell on You      Close Your Eyes           Evil Woman 
-##                    3                    2                    3 
+##                    2                    4                    2 
 ##         Time to Kill       Evil Bad Woman The Princess of Evil 
-##                    4                    4                    2 
+##                    1                    1                    4 
 ##      'Round Midnight Tana's Theme - Fr...           Evil Blues 
-##                    2                    1                    4 
+##                    4                    3                    1 
 ##  Someone Is Watching Violin Sonata in ...         Cannibal Pot 
-##                    2                    1                    3 
+##                    4                    3                    2 
 ##            Red Devil You're Not Living...         Little Demon 
-##                    3                    2                    3 
+##                    2                    4                    2 
 ## Devil at 4 O'Cloc...       Old Devil Moon  Up Jumped the Devil 
-##                    2                    3                    4 
+##                    4                    2                    1 
 ## Beetween the Devi...          Devil Woman 
-##                    4                    2 
+##                    1                    4 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1]  29.47158 139.55752 127.08693 104.86406
+## [1] 104.86406 127.08693  29.47158 139.55752
 ##  (between_SS / total_SS =  37.9 %)
 ## 
 ## Available components:

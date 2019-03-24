@@ -48,8 +48,6 @@ pata_pata %>%
     labs(x = 'Time (s)', y = 'Novelty')
 ```
 
-Because Spotify's segments are unevenly spaced in time, there is no straightforward way to convert this representation into a tempogram. 
-
 We can use similar approaches for chromagrams and cepstrograms. In the case of chromagrams, Aitchison's clr transformation gives more sensible differences between time points. Even with these helpful transformations, however, self-similarity matrices tend to be more helpful visualisations of chroma and timbre from the Spotify API.
 
 ```{r}
@@ -90,8 +88,38 @@ pata_pata %>%
     theme_classic()
 ```
 
-
 Find a Spotify track that has a regular tempo but lacks percussion (e.g., much Western classical music), and compute the above three representations. How do they differ from what you see for 'Pata Pata'?
+
+## Tempograms
+
+Spotify does not make the novelty function underlying their own tempo analysis available to the public, but we can still use onsets of every segment to generate Fourier tempograms. The `tempogram()` function from `compmus` generates this automatically from an audio analysis, ready to plot with `geom_raster` (a faster version of `geom_tile` for when every segment has the same length). Here is an example of 'Samba do outro lugar', a track from the Brazilian indie band Graveola that features several tempo and metre alternations.
+
+```{r}
+graveola <- get_tidy_audio_analysis('6PJasPKAzNLSOzxeAH33j2')
+```
+
+```{r}
+graveola %>% 
+    tempogram(window_size = 8, hop_size = 1, cyclic = FALSE) %>% 
+    ggplot(aes(x = time, y = bpm, fill = power)) + 
+    geom_raster() + 
+    scale_fill_viridis_c(guide = 'none') +
+    labs(x = 'Time (s)', y = 'Tempo (BPM)') +
+    theme_classic()
+```
+
+The textbook notes that Fourier-based tempograms tend to pick up strongly on tempo harmonics. Wrapping into a cyclic tempogram can be more informative. 
+
+```{r}
+graveola %>% 
+    tempogram(window_size = 8, hop_size = 1, cyclic = TRUE) %>% 
+    ggplot(aes(x = time, y = bpm, fill = power)) + 
+    geom_raster() + 
+    scale_fill_viridis_c(guide = 'none') +
+    labs(x = 'Time (s)', y = 'Tempo (BPM)') +
+    theme_classic()
+```
+
 
 ## Classification
 
