@@ -4,8 +4,12 @@
 \alias{compmus_match_pitch_template}
 \title{Match chroma vectors against templates}
 \usage{
-compmus_match_pitch_template(dat, templates, method = "cosine",
-  norm = "euclidean")
+compmus_match_pitch_template(
+  dat,
+  templates,
+  method = "cosine",
+  norm = "euclidean"
+)
 }
 \arguments{
 \item{dat}{A data frame containing chroma vectors in a \code{pitches} column.}

@@ -4,9 +4,14 @@
 \alias{tempogram}
 \title{Compute a tempogram from Spotify segment onsets}
 \usage{
-tempogram(track_analysis, window_size = 8, hop_size = 1,
-  cyclic = FALSE, bpms = if (cyclic) 80:160 else 30:600,
-  window_function = signal::hamming)
+tempogram(
+  track_analysis,
+  window_size = 8,
+  hop_size = 1,
+  cyclic = FALSE,
+  bpms = if (cyclic) 80:160 else 30:600,
+  window_function = signal::hamming
+)
 }
 \arguments{
 \item{track_analysis}{Spotify audio analysis as returned by

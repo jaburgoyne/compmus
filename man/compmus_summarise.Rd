@@ -5,11 +5,9 @@
 \alias{compmus_summarize}
 \title{Summarise possibly vector-valued columns}
 \usage{
-compmus_summarise(dat, feature, method = "mean", norm = "id",
-  na.rm = FALSE)
+compmus_summarise(dat, feature, method = "mean", norm = "id", na.rm = FALSE)
 
-compmus_summarize(dat, feature, method = "mean", norm = "id",
-  na.rm = FALSE)
+compmus_summarize(dat, feature, method = "mean", norm = "id", na.rm = FALSE)
 }
 \arguments{
 \item{dat}{A tibble containing list columns.}
