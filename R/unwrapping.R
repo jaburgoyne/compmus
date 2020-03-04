@@ -81,14 +81,14 @@ compmus_c_transpose <- function(dat, key)
             `A#` = -10,
             `Bb` = -10,
             B    = -11)
-
+    key <- ifelse(is_character(key), KEY_SHIFTS[[key]], -key)
     dat %>%
         dplyr::mutate(
             pitches =
                 purrr::map(
                     pitches,
                     . %>%
-                        .circshift(KEY_SHIFTS[[key]]) %>%
+                        .circshift(key) %>%
                         purrr::set_names(
                             c(
                                 'C', 'C#|Db', 'D', 'D#|Eb',

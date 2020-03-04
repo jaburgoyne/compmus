@@ -4,7 +4,7 @@ author: "John Ashley Burgoyne"
 date: "13 March 2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Classification}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -171,7 +171,7 @@ indie <-
                 method = 'mean')) %>% 
     mutate(pitches = map(pitches, compmus_normalise, 'clr')) %>% 
     mutate_at(vars(pitches, timbre), map, bind_rows) %>% 
-    unnest(pitches, timbre)
+    unnest(cols = c(pitches, timbre))
 ```
 
 ### Pre-processing
@@ -190,7 +190,7 @@ indie_class <-
                liveness +
                valence +
                tempo +
-               duration_ms +
+               track.duration_ms +
                C + `C#|Db` + D + `D#|Eb` +
                E + `F` + `F#|Gb` + G +
                `G#|Ab` + A + `A#|Bb` + B +
@@ -221,7 +221,9 @@ Your DataCamp tutorials this week introduced four classical algorithms for class
 A $k$-nearest neighbour classifier often works just fine with only one neighbour. It is very sensitive to the choice of features, however. Let's check the performance as a baseline and come back to it later.
 
 ```{r}
-indie_knn <- nearest_neighbor(neighbors = 1) %>% set_engine('kknn')
+indie_knn <- 
+  nearest_neighbor(mode = 'classification', neighbors = 1) %>% 
+  set_engine('kknn')
 predict_knn <- function(split)
     fit(indie_knn, playlist ~ ., data = analysis(split)) %>% 
     predict(assessment(split), type = 'class') %>%
@@ -304,7 +306,7 @@ indie_class %>%
 Decision trees are nicely intuitive, and perform somewhat better here.
 
 ```{r}
-indie_tree <- decision_tree() %>% set_engine('C5.0')
+indie_tree <- decision_tree(mode = 'classification') %>% set_engine('C5.0')
 predict_tree <- function(split)
     fit(indie_tree, playlist ~ ., data = analysis(split)) %>% 
     predict(assessment(split), type = 'class') %>%
@@ -329,7 +331,8 @@ indie_class %>%
 #### Random Forests
 
 ```{r}
-indie_forest <- rand_forest() %>% set_engine('randomForest')
+indie_forest <- 
+  rand_forest(mode = 'classification') %>% set_engine('randomForest')
 predict_forest <- function(split)
     fit(indie_forest, playlist ~ ., data = analysis(split)) %>% 
     predict(assessment(split), type = 'class') %>%
@@ -429,5 +432,5 @@ indie_deltas <-
                 compmus_summarise, timbre,
                 method = 'mean', na.rm = TRUE)) %>%
     mutate_at(vars(pitches, timbre), map, bind_rows) %>% 
-    unnest(pitches, timbre)
+    unnest(cols = c(pitches, timbre))
 ```

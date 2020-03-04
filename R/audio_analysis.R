@@ -24,7 +24,7 @@ get_tidy_audio_analysis <- function(track_uri, ...)
         dplyr::mutate_at(
             dplyr::vars(meta, track),
             . %>% purrr::map(tibble::as_tibble)) %>%
-        tidyr::unnest(meta, track) %>%
+        tidyr::unnest(cols = c(meta, track)) %>%
         dplyr::select(
             analyzer_version,
             duration,
@@ -81,6 +81,7 @@ add_audio_analysis <- function(df, ...)
 {
     df %>%
         dplyr::mutate(
-            analysis = purrr::map(track_uri, get_tidy_audio_analysis, ...)) %>%
-        tidyr::unnest()
+            track.uri = stringr::str_remove(track.uri, 'spotify:track:'),
+            analysis = purrr::map(track.uri, get_tidy_audio_analysis, ...)) %>%
+        tidyr::unnest(analysis)
 }

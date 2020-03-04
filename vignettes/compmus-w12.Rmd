@@ -4,7 +4,7 @@ author: "John Ashley Burgoyne"
 date: "20 March 2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Similarity and Clustering}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -48,7 +48,7 @@ halloween <-
                 method = 'mean')) %>% 
     mutate(pitches = map(pitches, compmus_normalise, 'clr')) %>% 
     mutate_at(vars(pitches, timbre), map, bind_rows) %>% 
-    unnest(pitches, timbre)
+    unnest(cols = c(pitches, timbre))
 ```
 
 ### Pre-processing
@@ -59,7 +59,7 @@ Last week we also discussed that although standardising variables with `step_cen
 
 ```{r}
 halloween_juice <- 
-    recipe(track_name ~
+    recipe(track.name ~
                danceability +
                energy +
                loudness +
@@ -69,7 +69,7 @@ halloween_juice <-
                liveness +
                valence +
                tempo +
-               duration_ms +
+               track.duration_ms +
                C + `C#|Db` + D + `D#|Eb` +
                E + `F` + `F#|Gb` + G +
                `G#|Ab` + A + `A#|Bb` + B +
@@ -79,9 +79,9 @@ halloween_juice <-
     step_center(all_predictors()) %>%
     step_scale(all_predictors()) %>%
     # step_range(all_predictors()) %>% 
-    prep(halloween %>% mutate(track_name = str_trunc(track_name, 20))) %>% 
+    prep(halloween %>% mutate(track_name = str_trunc(track.name, 20))) %>% 
     juice %>% 
-    column_to_rownames('track_name')
+    column_to_rownames('track.name')
 ```
 
 ### Computing distances

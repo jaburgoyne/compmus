@@ -8,7 +8,6 @@ reference:
     contents:
       - '`get_tidy_audio_analysis`'
       - '`add_audio_analysis`'
-      - '`get_playlist_audio_features`'
       - '`tempogram`'
   - title: Norms and Distances
     desc: ~

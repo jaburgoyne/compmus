@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 12 · Similarity and Clustering • compmus</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Week 12 · Similarity and Clustering">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -30,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
       </span>
     </div>
 
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -79,7 +80,8 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="compmus-w12_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Week 12 · Similarity and Clustering</h1>
@@ -98,36 +100,34 @@
 <h2 class="hasAnchor">
 <a href="#set-up" class="anchor"></a>Set-up</h2>
 <p>All of the tools that are strictly necessary for clustering are available in base R. For full flexibility, however, the <code>protoclust</code> packages is recommended. If you want to explore further possibilities, look at the <code>cluster</code> package.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.1.0       ✔ purrr   0.3.2  
-## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
-## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
-## ✔ readr   1.3.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidymodels)</a></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────── tidymodels 0.0.2 ──</code></pre>
-<pre><code>## ✔ broom     0.5.1     ✔ recipes   0.1.4
-## ✔ dials     0.0.2     ✔ rsample   0.0.4
-## ✔ infer     0.4.0     ✔ yardstick 0.0.3
-## ✔ parsnip   0.0.1</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────── tidymodels_conflicts() ──
-## ✖ scales::discard() masks purrr::discard()
-## ✖ dplyr::filter()   masks stats::filter()
-## ✖ recipes::fixed()  masks stringr::fixed()
-## ✖ dplyr::lag()      masks stats::lag()
-## ✖ yardstick::spec() masks readr::spec()
-## ✖ recipes::step()   masks stats::step()</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(protoclust)</a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(spotifyr)</a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(compmus)</a></code></pre></div>
-<pre><code>## 
-## Attaching package: 'compmus'</code></pre>
-<pre><code>## The following object is masked from 'package:spotifyr':
-## 
-##     get_playlist_audio_features</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.4
+## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidymodels)</span></code></pre></div>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────── tidymodels 0.1.0 ──</code></pre>
+<pre><code>## ✓ broom     0.5.4     ✓ rsample   0.0.5
+## ✓ dials     0.0.4     ✓ tune      0.0.1
+## ✓ infer     0.5.1     ✓ workflows 0.1.0
+## ✓ parsnip   0.0.5     ✓ yardstick 0.0.5
+## ✓ recipes   0.1.9</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────── tidymodels_conflicts() ──
+## x scales::discard()   masks purrr::discard()
+## x dplyr::filter()     masks stats::filter()
+## x recipes::fixed()    masks stringr::fixed()
+## x dplyr::lag()        masks stats::lag()
+## x dials::margin()     masks ggplot2::margin()
+## x yardstick::spec()   masks readr::spec()
+## x recipes::step()     masks stats::step()
+## x recipes::yj_trans() masks scales::yj_trans()</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(protoclust)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(spotifyr)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(compmus)</span></code></pre></div>
 <p>In order for the code below to run, it is also necessary to set up Spotify login credentials for <code>spotifyr</code>.</p>
 </div>
 <div id="clustering" class="section level2">
@@ -135,69 +135,69 @@
 <a href="#clustering" class="anchor"></a>Clustering</h2>
 <p>The Bibliothèque nationale de France (BnF) makes a large portion of its <a href="https://gallica.bnf.fr/html/und/bnf-collection-sonore">music collection</a> available on Spotify, including an eclectic collection of curated playlists. The defining musical characteristics of these playlists are sometimes unclear: for example, they have a Halloween playlist. Perhaps clustering can help us organise and describe what kinds of musical selections make it into the BnF’s playlist.</p>
 <p>We begin by loading the playlist and summarising the pitch and timbre features, just like last week. Note that, also like last week, we use <code>compmus_c_transpose</code> to transpose the chroma features so that – depending on the accuracy of Spotify’s key estimation – we can interpret them as if every piece were in C major or C minor. Although this example includes no delta features, try adding them yourself if you are feeling comfortable with R!</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">halloween &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb12-2" title="2"><span class="st">    </span><span class="kw"><a href="../reference/get_playlist_audio_features.html">get_playlist_audio_features</a></span>(<span class="st">'bnfcollection'</span>, <span class="st">'1vsoLSK3ArkpaIHmUaF02C'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="st">    </span>add_audio_analysis <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb12-5" title="5">        <span class="dt">segments =</span> </a>
-<a class="sourceLine" id="cb12-6" title="6">            <span class="kw">map2</span>(segments, key, compmus_c_transpose)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="st">    </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb12-8" title="8">        <span class="dt">pitches =</span> </a>
-<a class="sourceLine" id="cb12-9" title="9">            <span class="kw">map</span>(segments, </a>
-<a class="sourceLine" id="cb12-10" title="10">                compmus_summarise, pitches, </a>
-<a class="sourceLine" id="cb12-11" title="11">                <span class="dt">method =</span> <span class="st">'mean'</span>, <span class="dt">norm =</span> <span class="st">'manhattan'</span>),</a>
-<a class="sourceLine" id="cb12-12" title="12">        <span class="dt">timbre =</span></a>
-<a class="sourceLine" id="cb12-13" title="13">            <span class="kw">map</span>(</a>
-<a class="sourceLine" id="cb12-14" title="14">                segments,</a>
-<a class="sourceLine" id="cb12-15" title="15">                compmus_summarise, timbre,</a>
-<a class="sourceLine" id="cb12-16" title="16">                <span class="dt">method =</span> <span class="st">'mean'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-17" title="17"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pitches =</span> <span class="kw">map</span>(pitches, compmus_normalise, <span class="st">'clr'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-18" title="18"><span class="st">    </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(pitches, timbre), map, bind_rows) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-19" title="19"><span class="st">    </span><span class="kw">unnest</span>(pitches, timbre)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>halloween &lt;-<span class="st"> </span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/pkg/spotifyr/man/get_playlist_audio_features.html">get_playlist_audio_features</a></span>(<span class="st">'bnfcollection'</span>, <span class="st">'1vsoLSK3ArkpaIHmUaF02C'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="st">    </span>add_audio_analysis <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb10-5"><a href="#cb10-5"></a>        <span class="dt">segments =</span> </span>
+<span id="cb10-6"><a href="#cb10-6"></a>            <span class="kw">map2</span>(segments, key, compmus_c_transpose)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
+<span id="cb10-8"><a href="#cb10-8"></a>        <span class="dt">pitches =</span> </span>
+<span id="cb10-9"><a href="#cb10-9"></a>            <span class="kw">map</span>(segments, </span>
+<span id="cb10-10"><a href="#cb10-10"></a>                compmus_summarise, pitches, </span>
+<span id="cb10-11"><a href="#cb10-11"></a>                <span class="dt">method =</span> <span class="st">'mean'</span>, <span class="dt">norm =</span> <span class="st">'manhattan'</span>),</span>
+<span id="cb10-12"><a href="#cb10-12"></a>        <span class="dt">timbre =</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>            <span class="kw">map</span>(</span>
+<span id="cb10-14"><a href="#cb10-14"></a>                segments,</span>
+<span id="cb10-15"><a href="#cb10-15"></a>                compmus_summarise, timbre,</span>
+<span id="cb10-16"><a href="#cb10-16"></a>                <span class="dt">method =</span> <span class="st">'mean'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pitches =</span> <span class="kw">map</span>(pitches, compmus_normalise, <span class="st">'clr'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="st">    </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(pitches, timbre), map, bind_rows) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="st">    </span><span class="kw">unnest</span>(<span class="dt">cols =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(pitches, timbre))</span></code></pre></div>
 <div id="pre-processing" class="section level3">
 <h3 class="hasAnchor">
 <a href="#pre-processing" class="anchor"></a>Pre-processing</h3>
 <p>Remember that in the <code>tidyverse</code> approach, we can preprocess data with a <code>recipe</code>. In this case, instead of a label that we want to predict, we start with a label that will make the cluster plots readable. For most projects, the track name will be the best choice (although feel free to experiment with others). The code below uses <code>str_trunc</code> to clip the track name to a maximum of 20 characters, again in order to improve readability. The other change from last week is <code>column_to_rownames</code>, which is necessary for the plot labels to appear correctly.</p>
 <p>Last week we also discussed that although standardising variables with <code>step_center</code> to make the mean 0 and <code>step_scale</code> to make the standard deviation 1 is the most common approach, sometimes <code>step_range</code> is a better alternative, which squashes or stretches every features so that it ranges from 0 to 1. For most classification algorithms, the difference is small; for clustering, the differences can be more noticable. It’s wise to try both.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">halloween_juice &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb13-2" title="2"><span class="st">    </span><span class="kw">recipe</span>(track_name <span class="op">~</span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="st">               </span>danceability <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="st">               </span>energy <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="st">               </span>loudness <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-6" title="6"><span class="st">               </span>speechiness <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="st">               </span>acousticness <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-8" title="8"><span class="st">               </span>instrumentalness <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-9" title="9"><span class="st">               </span>liveness <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-10" title="10"><span class="st">               </span>valence <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-11" title="11"><span class="st">               </span>tempo <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-12" title="12"><span class="st">               </span>duration_ms <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-13" title="13"><span class="st">               </span>C <span class="op">+</span><span class="st"> `</span><span class="dt">C#|Db</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>D <span class="op">+</span><span class="st"> `</span><span class="dt">D#|Eb</span><span class="st">`</span> <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-14" title="14"><span class="st">               </span>E <span class="op">+</span><span class="st"> `</span><span class="dt">F</span><span class="st">`</span> <span class="op">+</span><span class="st"> `</span><span class="dt">F#|Gb</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>G <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-15" title="15"><span class="st">               `</span><span class="dt">G#|Ab</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>A <span class="op">+</span><span class="st"> `</span><span class="dt">A#|Bb</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>B <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-16" title="16"><span class="st">               </span>c01 <span class="op">+</span><span class="st"> </span>c02 <span class="op">+</span><span class="st"> </span>c03 <span class="op">+</span><span class="st"> </span>c04 <span class="op">+</span><span class="st"> </span>c05 <span class="op">+</span><span class="st"> </span>c06 <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-17" title="17"><span class="st">               </span>c07 <span class="op">+</span><span class="st"> </span>c08 <span class="op">+</span><span class="st"> </span>c09 <span class="op">+</span><span class="st"> </span>c10 <span class="op">+</span><span class="st"> </span>c11 <span class="op">+</span><span class="st"> </span>c12,</a>
-<a class="sourceLine" id="cb13-18" title="18">           <span class="dt">data =</span> halloween) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-19" title="19"><span class="st">    </span><span class="kw">step_center</span>(<span class="kw">all_predictors</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-20" title="20"><span class="st">    </span><span class="kw">step_scale</span>(<span class="kw">all_predictors</span>()) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb13-21" title="21"><span class="st">    </span><span class="co"># step_range(all_predictors()) %&gt;% </span></a>
-<a class="sourceLine" id="cb13-22" title="22"><span class="st">    </span><span class="kw">prep</span>(halloween <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">track_name =</span> <span class="kw">str_trunc</span>(track_name, <span class="dv">20</span>))) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-23" title="23"><span class="st">    </span>juice <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb13-24" title="24"><span class="st">    </span><span class="kw">column_to_rownames</span>(<span class="st">'track_name'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>halloween_juice &lt;-<span class="st"> </span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="st">    </span><span class="kw">recipe</span>(track.name <span class="op">~</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="st">               </span>danceability <span class="op">+</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="st">               </span>energy <span class="op">+</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="st">               </span>loudness <span class="op">+</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="st">               </span>speechiness <span class="op">+</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="st">               </span>acousticness <span class="op">+</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="st">               </span>instrumentalness <span class="op">+</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="st">               </span>liveness <span class="op">+</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="st">               </span>valence <span class="op">+</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="st">               </span>tempo <span class="op">+</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="st">               </span>track.duration_ms <span class="op">+</span></span>
+<span id="cb11-13"><a href="#cb11-13"></a><span class="st">               </span>C <span class="op">+</span><span class="st"> `</span><span class="dt">C#|Db</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>D <span class="op">+</span><span class="st"> `</span><span class="dt">D#|Eb</span><span class="st">`</span> <span class="op">+</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a><span class="st">               </span>E <span class="op">+</span><span class="st"> `</span><span class="dt">F</span><span class="st">`</span> <span class="op">+</span><span class="st"> `</span><span class="dt">F#|Gb</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>G <span class="op">+</span></span>
+<span id="cb11-15"><a href="#cb11-15"></a><span class="st">               `</span><span class="dt">G#|Ab</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>A <span class="op">+</span><span class="st"> `</span><span class="dt">A#|Bb</span><span class="st">`</span> <span class="op">+</span><span class="st"> </span>B <span class="op">+</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a><span class="st">               </span>c01 <span class="op">+</span><span class="st"> </span>c02 <span class="op">+</span><span class="st"> </span>c03 <span class="op">+</span><span class="st"> </span>c04 <span class="op">+</span><span class="st"> </span>c05 <span class="op">+</span><span class="st"> </span>c06 <span class="op">+</span></span>
+<span id="cb11-17"><a href="#cb11-17"></a><span class="st">               </span>c07 <span class="op">+</span><span class="st"> </span>c08 <span class="op">+</span><span class="st"> </span>c09 <span class="op">+</span><span class="st"> </span>c10 <span class="op">+</span><span class="st"> </span>c11 <span class="op">+</span><span class="st"> </span>c12,</span>
+<span id="cb11-18"><a href="#cb11-18"></a>           <span class="dt">data =</span> halloween) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-19"><a href="#cb11-19"></a><span class="st">    </span><span class="kw">step_center</span>(<span class="kw">all_predictors</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a><span class="st">    </span><span class="kw">step_scale</span>(<span class="kw">all_predictors</span>()) <span class="op">%&gt;%</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a><span class="st">    </span><span class="co"># step_range(all_predictors()) %&gt;% </span></span>
+<span id="cb11-22"><a href="#cb11-22"></a><span class="st">    </span><span class="kw">prep</span>(halloween <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">track_name =</span> <span class="kw">str_trunc</span>(track.name, <span class="dv">20</span>))) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-23"><a href="#cb11-23"></a><span class="st">    </span>juice <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-24"><a href="#cb11-24"></a><span class="st">    </span><span class="kw">column_to_rownames</span>(<span class="st">'track.name'</span>)</span></code></pre></div>
 </div>
 <div id="computing-distances" class="section level3">
 <h3 class="hasAnchor">
 <a href="#computing-distances" class="anchor"></a>Computing distances</h3>
 <p>When using <code>step_center</code> and <code>step_scale</code>, then the Euclidean distance is usual. When using <code>step_range</code>, then the Manhattan distance is also a good choice: this combination is known as <em>Gower’s distance</em> and has a long history in clustering.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">halloween_dist &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/dist">dist</a></span>(halloween_juice, <span class="dt">method =</span> <span class="st">'euclidean'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>halloween_dist &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span>(halloween_juice, <span class="dt">method =</span> <span class="st">'euclidean'</span>)</span></code></pre></div>
 </div>
 <div id="hierarchical-clustering" class="section level3">
 <h3 class="hasAnchor">
 <a href="#hierarchical-clustering" class="anchor"></a>Hierarchical clustering</h3>
 <p>As you learned in your DataCamp exercises this week, there are three primary types of <em>linkage</em>: single, average, and complete. Usually average or complete give the best results. We can use the <code>ggendrogram</code> function to make a more standardised plot of the results.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/hclust">hclust</a></span>(halloween_dist, <span class="dt">method =</span> <span class="st">'single'</span>) <span class="op">%&gt;%</span><span class="st"> </span>plot</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span>(halloween_dist, <span class="dt">method =</span> <span class="st">'single'</span>) <span class="op">%&gt;%</span><span class="st"> </span>plot</span></code></pre></div>
 <p><img src="compmus-w12_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 <p>A more recent – and often superior – linkage function is <em>minimax linkage</em>, available in the <code>protoclust</code> package. It is more akin to <span class="math inline">\(k\)</span>-means: at each step, it chooses an ideal centroid for every cluster such that the maximum distance between centroids and all members of their respective clusters is as small as possible.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/protoclust/topics/protoclust">protoclust</a></span>(halloween_dist) <span class="op">%&gt;%</span><span class="st"> </span>plot</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw"><a href="https://rdrr.io/pkg/protoclust/man/protoclust.html">protoclust</a></span>(halloween_dist) <span class="op">%&gt;%</span><span class="st"> </span>plot</span></code></pre></div>
 <p><img src="compmus-w12_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 <p>Try all four of these linkages. Which one looks the best? Which one <em>sounds</em> the best (when you listen to the tracks on Spotify)? Can you guess which features are separating the clusters?</p>
 </div>
@@ -205,71 +205,97 @@
 <h3 class="hasAnchor">
 <a href="#k-means" class="anchor"></a><em>k</em>-Means</h3>
 <p>Unlike hierarchical clustering, <em>k</em>-means clustering returns a different results every time. Nonetheless, it can be a useful reality check on the stability of the clusters from hierarchical clustering.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/kmeans">kmeans</a></span>(halloween_juice, <span class="dv">4</span>)</a></code></pre></div>
-<pre><code>## K-means clustering with 4 clusters of sizes 5, 6, 2, 7
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw"><a href="https://rdrr.io/r/stats/kmeans.html">kmeans</a></span>(halloween_juice, <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## K-means clustering with 4 clusters of sizes 5, 7, 6, 2
 ## 
 ## Cluster means:
-##   danceability      energy   loudness speechiness acousticness
-## 1   0.64836983 -0.49710006  0.1245002  0.05224442    0.3870865
-## 2   0.83101946  1.15415030  0.6751792  0.92760310   -0.5974045
-## 3   0.09605479  0.07213439  0.5262965 -0.48145689    0.1384264
-## 4  -1.20286793 -0.65481004 -0.8180242 -0.69484670    0.1960202
-##   instrumentalness    liveness    valence       tempo duration_ms
-## 1     -0.367575835  0.62657491  0.2517858 -0.57764542 -0.07050269
-## 2     -0.059112255 -0.69972953  0.9450583  0.65014905 -0.32295850
-## 3      1.105519968  0.23473711  0.1471131 -0.02038562 -0.12646175
-## 4     -0.002641033  0.08514692 -1.0319293 -0.13884228  0.36331256
-##             C       C#|Db          D      D#|Eb          E          F
-## 1 -0.34809410  0.50342957 -0.4354586 -0.4435755 -1.0830882 -0.6567164
-## 2  0.10302548  0.02907237  0.1496190 -0.1653766 -0.1800450  0.3505671
-## 3  0.44130883 -1.77309313  1.3525471 -0.5766835  1.7594651 -0.5345336
-## 4  0.03424285  0.12208631 -0.2036450  0.6233577  0.4252545  0.3213209
-##        F#|Gb           G         G#|Ab          A       A#|Bb          B
-## 1  0.4805615  0.47929858  1.0426814710  0.3224897  0.78538950 -0.5982347
-## 2  0.4983636 -0.34465054 -0.1988474363 -0.2919318 -0.06307911  0.2556722
-## 3 -0.4481507  0.17806751 -2.0105648218  1.2442431 -1.91137400  1.8355507
-## 4 -0.6423839 -0.09781781  0.0001152723 -0.3356205  0.03918216 -0.3162802
-##          c01        c02        c03         c04        c05        c06
-## 1 -0.6921753 -0.5563510 -0.5489469 -0.06467015  0.2282925  0.8266389
-## 2  0.5016825  0.3531571 -0.5880053  0.53833638 -0.5492119  0.2363025
-## 3  0.9626355  1.2067481  1.7439574  1.40708521  0.5926782  0.1993832
-## 4 -0.2106414 -0.2500977  0.3978360 -0.81726256  0.1383504 -0.8499680
-##            c07        c08        c09        c10        c11        c12
-## 1 -0.164543931  0.3382651  0.8217280  0.4590651 -0.9741404 -0.2838794
-## 2  0.472074517 -0.0128682 -0.8325366  0.5484503 -0.4237820 -0.3920377
-## 3 -0.998983423 -1.4265712 -0.9808208 -0.4151848  0.5479418 -0.2223407
-## 4 -0.001680086  0.1770037  0.4068887 -0.6793797  0.9025014  0.6023293
+##   danceability      energy   loudness speechiness acousticness instrumentalness
+## 1   0.64836983 -0.49710006  0.1245002  0.05224442    0.3870865     -0.367575835
+## 2  -1.20286793 -0.65481004 -0.8180242 -0.69484670    0.1960202     -0.002641033
+## 3   0.83101946  1.15415030  0.6751792  0.92760310   -0.5974045     -0.059112255
+## 4   0.09605479  0.07213439  0.5262965 -0.48145689    0.1384264      1.105519968
+##      liveness    valence       tempo track.duration_ms           C       C#|Db
+## 1  0.62657491  0.2517858 -0.57764542       -0.07050626 -0.34809410  0.50342957
+## 2  0.08514692 -1.0319293 -0.13884228        0.36331312  0.03424285  0.12208631
+## 3 -0.69972953  0.9450583  0.65014905       -0.32295764  0.10302548  0.02907237
+## 4  0.23473711  0.1471131 -0.02038562       -0.12645737  0.44130883 -1.77309313
+##            D      D#|Eb          E          F      F#|Gb           G
+## 1 -0.4354586 -0.4435755 -1.0830882 -0.6567164  0.4805615  0.47929858
+## 2 -0.2036450  0.6233577  0.4252545  0.3213209 -0.6423839 -0.09781781
+## 3  0.1496190 -0.1653766 -0.1800450  0.3505671  0.4983636 -0.34465054
+## 4  1.3525471 -0.5766835  1.7594651 -0.5345336 -0.4481507  0.17806751
+##           G#|Ab          A       A#|Bb          B        c01        c02
+## 1  1.0426814710  0.3224897  0.78538950 -0.5982347 -0.6921753 -0.5563510
+## 2  0.0001152723 -0.3356205  0.03918216 -0.3162802 -0.2106414 -0.2500977
+## 3 -0.1988474363 -0.2919318 -0.06307911  0.2556722  0.5016825  0.3531571
+## 4 -2.0105648218  1.2442431 -1.91137400  1.8355507  0.9626355  1.2067481
+##          c03         c04        c05        c06          c07        c08
+## 1 -0.5489469 -0.06467015  0.2282925  0.8266389 -0.164543931  0.3382651
+## 2  0.3978360 -0.81726256  0.1383504 -0.8499680 -0.001680086  0.1770037
+## 3 -0.5880053  0.53833638 -0.5492119  0.2363025  0.472074517 -0.0128682
+## 4  1.7439574  1.40708521  0.5926782  0.1993832 -0.998983423 -1.4265712
+##          c09        c10        c11        c12
+## 1  0.8217280  0.4590651 -0.9741404 -0.2838794
+## 2  0.4068887 -0.6793797  0.9025014  0.6023293
+## 3 -0.8325366  0.5484503 -0.4237820 -0.3920377
+## 4 -0.9808208 -0.4151848  0.5479418 -0.2223407
 ## 
 ## Clustering vector:
-## I Put a Spell on You      Close Your Eyes           Evil Woman 
-##                    2                    4                    2 
-##         Time to Kill       Evil Bad Woman The Princess of Evil 
-##                    1                    1                    4 
-##      'Round Midnight Tana's Theme - Fr...           Evil Blues 
-##                    4                    3                    1 
-##  Someone Is Watching Violin Sonata in ...         Cannibal Pot 
-##                    4                    3                    2 
-##            Red Devil You're Not Living...         Little Demon 
-##                    2                    4                    2 
-## Devil at 4 O'Cloc...       Old Devil Moon  Up Jumped the Devil 
-##                    4                    2                    1 
-## Beetween the Devi...          Devil Woman 
-##                    1                    4 
+##                                                                            I Put a Spell on You 
+##                                                                                               3 
+##                                                                                 Close Your Eyes 
+##                                                                                               2 
+##                                                                                      Evil Woman 
+##                                                                                               3 
+##                                                                                    Time to Kill 
+##                                                                                               1 
+##                                                                                  Evil Bad Woman 
+##                                                                                               1 
+##                                                                            The Princess of Evil 
+##                                                                                               2 
+##                                                                                 'Round Midnight 
+##                                                                                               2 
+##                                                             Tana's Theme - From "Touch of Evil" 
+##                                                                                               4 
+##                                                                                      Evil Blues 
+##                                                                                               1 
+##                                                                             Someone Is Watching 
+##                                                                                               2 
+## Violin Sonata in G Minor "Devil's Trill": II. Allegro energico - Grave - Arr. by Fritz Kreisler 
+##                                                                                               4 
+##                                                                                    Cannibal Pot 
+##                                                                                               3 
+##                                                                                       Red Devil 
+##                                                                                               3 
+##                                                                       You're Not Living in Vain 
+##                                                                                               2 
+##                                                                                    Little Demon 
+##                                                                                               3 
+##                                                  Devil at 4 O'Clock - From "Devil at 4 O'Clock" 
+##                                                                                               2 
+##                                                                                  Old Devil Moon 
+##                                                                                               3 
+##                                                                             Up Jumped the Devil 
+##                                                                                               1 
+##                                                        Beetween the Devil and the Deep Blue Sea 
+##                                                                                               1 
+##                                                                                     Devil Woman 
+##                                                                                               2 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 104.86406 127.08693  29.47158 139.55752
+## [1] 104.86406 139.55752 127.08694  29.47158
 ##  (between_SS / total_SS =  37.9 %)
 ## 
 ## Available components:
 ## 
-## [1] "cluster"      "centers"      "totss"        "withinss"    
-## [5] "tot.withinss" "betweenss"    "size"         "iter"        
-## [9] "ifault"</code></pre>
+## [1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+## [6] "betweenss"    "size"         "iter"         "ifault"</code></pre>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -283,17 +309,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by John Ashley Burgoyne.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
