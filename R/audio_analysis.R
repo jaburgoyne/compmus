@@ -83,7 +83,7 @@ get_tidy_audio_analysis <- function(track_uri, ...) {
 #'
 #' @examples
 #' library(tidyverse)
-#' get_playlist_audio_features("spotify", "37i9dQZF1DX21bRPJuEN7r") %>%
+#' spotifyr::get_playlist_audio_features("", "37i9dQZF1DX21bRPJuEN7r") %>%
 #'   slice(1:5) %>%
 #'   add_audio_analysis()
 add_audio_analysis <- function(df, ...) {
