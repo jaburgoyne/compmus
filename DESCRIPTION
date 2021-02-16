@@ -13,17 +13,17 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     assertthat (>= 0.2),
-    dplyr (>= 0.7),
-    forcats (>= 0.3),
+    dplyr (>= 1.0),
+    forcats (>= 0.5),
     httr (>= 1.4),
-    magrittr (>= 1.5),
+    magrittr (>= 2.0),
     purrr (>= 0.3),
-    rlang (>= 0.3),
+    rlang (>= 0.4),
     signal (>= 0.7),
-    spotifyr (>= 1.1),
+    spotifyr (>= 2.1),
     stringr (>= 1.4),
-    tibble (>= 2.0),
-    tidyr (>= 0.8)
+    tibble (>= 3.0),
+    tidyr (>= 1.1)
 Suggests: 
     C50,
     ggdendro,
