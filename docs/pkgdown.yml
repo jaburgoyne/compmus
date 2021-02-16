@@ -1,5 +1,5 @@
-pandoc: 2.9.2
-pkgdown: 1.4.1
+pandoc: 2.11.2
+pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   compmus-w08: compmus-w08.html
@@ -7,4 +7,5 @@ articles:
   compmus-w10: compmus-w10.html
   compmus-w11: compmus-w11.html
   compmus-w12: compmus-w12.html
+last_built: 2021-02-16T21:36Z
 

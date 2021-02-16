@@ -6,19 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 10 · Key and Chord Estimation • compmus</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Week 10 · Key and Chord Estimation">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="compmus">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9007</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -81,10 +81,10 @@
 
       
 
-      </header><script src="compmus-w10_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
+      </header><script src="compmus-w10_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Week 10 · Key and Chord Estimation</h1>
+      <h1 data-toc-skip>Week 10 · Key and Chord Estimation</h1>
                         <h4 class="author">John Ashley Burgoyne</h4>
             
             <h4 class="date">6 March 2019</h4>
@@ -99,129 +99,134 @@
 <div id="set-up" class="section level2">
 <h2 class="hasAnchor">
 <a href="#set-up" class="anchor"></a>Set-up</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
-## ✓ tibble  2.1.3     ✓ dplyr   0.8.4
-## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.0.6     ✓ dplyr   1.0.4
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(spotifyr)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(compmus)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/charlie86/spotifyr">spotifyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">compmus</span><span class="op">)</span></code></pre></div>
 <p>In order for the code below to run, it is also necessary to set up Spotify login credentials for <code>spotifyr</code>.</p>
 </div>
 <div id="tonal-templates" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tonal-templates" class="anchor"></a>Tonal Templates</h2>
 <p>The focus of the readings this week were chord and key estimation. One set of standard templates is below: 1–0 coding for the chord templates and the Krumhansl–Kessler key profiles.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>circshift &lt;-<span class="st"> </span><span class="cf">function</span>(v, n) {<span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) v <span class="cf">else</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="kw"><a href="https://rdrr.io/r/utils/head.html">tail</a></span>(v, n), <span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(v, <span class="op">-</span>n))}</span>
-<span id="cb6-2"><a href="#cb6-2"></a>                                    </span>
-<span id="cb6-3"><a href="#cb6-3"></a>    <span class="co"># C     C#    D     Eb    E     F     F#    G     Ab    A     Bb    B </span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>major_chord &lt;-<span class="st"> </span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">0</span>)</span>
-<span id="cb6-6"><a href="#cb6-6"></a>minor_chord &lt;-<span class="st"> </span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">0</span>)</span>
-<span id="cb6-8"><a href="#cb6-8"></a>seventh_chord &lt;-<span class="st"> </span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">1</span>,    <span class="dv">0</span>,    <span class="dv">0</span>,    <span class="dv">1</span>,    <span class="dv">0</span>)</span>
-<span id="cb6-10"><a href="#cb6-10"></a></span>
-<span id="cb6-11"><a href="#cb6-11"></a>major_key &lt;-<span class="st"> </span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">6.35</span>, <span class="fl">2.23</span>, <span class="fl">3.48</span>, <span class="fl">2.33</span>, <span class="fl">4.38</span>, <span class="fl">4.09</span>, <span class="fl">2.52</span>, <span class="fl">5.19</span>, <span class="fl">2.39</span>, <span class="fl">3.66</span>, <span class="fl">2.29</span>, <span class="fl">2.88</span>)</span>
-<span id="cb6-13"><a href="#cb6-13"></a>minor_key &lt;-</span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">6.33</span>, <span class="fl">2.68</span>, <span class="fl">3.52</span>, <span class="fl">5.38</span>, <span class="fl">2.60</span>, <span class="fl">3.53</span>, <span class="fl">2.54</span>, <span class="fl">4.75</span>, <span class="fl">3.98</span>, <span class="fl">2.69</span>, <span class="fl">3.34</span>, <span class="fl">3.17</span>)</span>
-<span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a>chord_templates &lt;-</span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="st">    </span><span class="kw">tribble</span>(</span>
-<span id="cb6-18"><a href="#cb6-18"></a>        <span class="op">~</span>name  , <span class="op">~</span>template,</span>
-<span id="cb6-19"><a href="#cb6-19"></a>        <span class="st">'Gb:7'</span>  , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">6</span>),</span>
-<span id="cb6-20"><a href="#cb6-20"></a>        <span class="st">'Gb:maj'</span>, <span class="kw">circshift</span>(major_chord,    <span class="dv">6</span>),</span>
-<span id="cb6-21"><a href="#cb6-21"></a>        <span class="st">'Bb:min'</span>, <span class="kw">circshift</span>(minor_chord,   <span class="dv">10</span>),</span>
-<span id="cb6-22"><a href="#cb6-22"></a>        <span class="st">'Db:maj'</span>, <span class="kw">circshift</span>(major_chord,    <span class="dv">1</span>),</span>
-<span id="cb6-23"><a href="#cb6-23"></a>        <span class="st">'F:min'</span> , <span class="kw">circshift</span>(minor_chord,    <span class="dv">5</span>),</span>
-<span id="cb6-24"><a href="#cb6-24"></a>        <span class="st">'Ab:7'</span>  , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">8</span>),</span>
-<span id="cb6-25"><a href="#cb6-25"></a>        <span class="st">'Ab:maj'</span>, <span class="kw">circshift</span>(major_chord,    <span class="dv">8</span>),</span>
-<span id="cb6-26"><a href="#cb6-26"></a>        <span class="st">'C:min'</span> , <span class="kw">circshift</span>(minor_chord,    <span class="dv">0</span>),</span>
-<span id="cb6-27"><a href="#cb6-27"></a>        <span class="st">'Eb:7'</span>  , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">3</span>),</span>
-<span id="cb6-28"><a href="#cb6-28"></a>        <span class="st">'Eb:maj'</span>, <span class="kw">circshift</span>(major_chord,    <span class="dv">3</span>),</span>
-<span id="cb6-29"><a href="#cb6-29"></a>        <span class="st">'G:min'</span> , <span class="kw">circshift</span>(minor_chord,    <span class="dv">7</span>),</span>
-<span id="cb6-30"><a href="#cb6-30"></a>        <span class="st">'Bb:7'</span>  , <span class="kw">circshift</span>(seventh_chord, <span class="dv">10</span>),</span>
-<span id="cb6-31"><a href="#cb6-31"></a>        <span class="st">'Bb:maj'</span>, <span class="kw">circshift</span>(major_chord,   <span class="dv">10</span>),</span>
-<span id="cb6-32"><a href="#cb6-32"></a>        <span class="st">'D:min'</span> , <span class="kw">circshift</span>(minor_chord,    <span class="dv">2</span>),</span>
-<span id="cb6-33"><a href="#cb6-33"></a>        <span class="st">'F:7'</span>   , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">5</span>),</span>
-<span id="cb6-34"><a href="#cb6-34"></a>        <span class="st">'F:maj'</span> , <span class="kw">circshift</span>(major_chord,    <span class="dv">5</span>),</span>
-<span id="cb6-35"><a href="#cb6-35"></a>        <span class="st">'A:min'</span> , <span class="kw">circshift</span>(minor_chord,    <span class="dv">9</span>),</span>
-<span id="cb6-36"><a href="#cb6-36"></a>        <span class="st">'C:7'</span>   , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">0</span>),</span>
-<span id="cb6-37"><a href="#cb6-37"></a>        <span class="st">'C:maj'</span> , <span class="kw">circshift</span>(major_chord,    <span class="dv">0</span>),</span>
-<span id="cb6-38"><a href="#cb6-38"></a>        <span class="st">'E:min'</span> , <span class="kw">circshift</span>(minor_chord,    <span class="dv">4</span>),</span>
-<span id="cb6-39"><a href="#cb6-39"></a>        <span class="st">'G:7'</span>   , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">7</span>),</span>
-<span id="cb6-40"><a href="#cb6-40"></a>        <span class="st">'G:maj'</span> , <span class="kw">circshift</span>(major_chord,    <span class="dv">7</span>),</span>
-<span id="cb6-41"><a href="#cb6-41"></a>        <span class="st">'B:min'</span> , <span class="kw">circshift</span>(minor_chord,   <span class="dv">11</span>),</span>
-<span id="cb6-42"><a href="#cb6-42"></a>        <span class="st">'D:7'</span>   , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">2</span>),</span>
-<span id="cb6-43"><a href="#cb6-43"></a>        <span class="st">'D:maj'</span> , <span class="kw">circshift</span>(major_chord,    <span class="dv">2</span>),</span>
-<span id="cb6-44"><a href="#cb6-44"></a>        <span class="st">'F#:min'</span>, <span class="kw">circshift</span>(minor_chord,    <span class="dv">6</span>),</span>
-<span id="cb6-45"><a href="#cb6-45"></a>        <span class="st">'A:7'</span>   , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">9</span>),</span>
-<span id="cb6-46"><a href="#cb6-46"></a>        <span class="st">'A:maj'</span> , <span class="kw">circshift</span>(major_chord,    <span class="dv">9</span>),</span>
-<span id="cb6-47"><a href="#cb6-47"></a>        <span class="st">'C#:min'</span>, <span class="kw">circshift</span>(minor_chord,    <span class="dv">1</span>),</span>
-<span id="cb6-48"><a href="#cb6-48"></a>        <span class="st">'E:7'</span>   , <span class="kw">circshift</span>(seventh_chord,  <span class="dv">4</span>),</span>
-<span id="cb6-49"><a href="#cb6-49"></a>        <span class="st">'E:maj'</span> , <span class="kw">circshift</span>(major_chord,    <span class="dv">4</span>),</span>
-<span id="cb6-50"><a href="#cb6-50"></a>        <span class="st">'G#:min'</span>, <span class="kw">circshift</span>(minor_chord,    <span class="dv">8</span>),</span>
-<span id="cb6-51"><a href="#cb6-51"></a>        <span class="st">'B:7'</span>   , <span class="kw">circshift</span>(seventh_chord, <span class="dv">11</span>),</span>
-<span id="cb6-52"><a href="#cb6-52"></a>        <span class="st">'B:maj'</span> , <span class="kw">circshift</span>(major_chord,   <span class="dv">11</span>),</span>
-<span id="cb6-53"><a href="#cb6-53"></a>        <span class="st">'D#:min'</span>, <span class="kw">circshift</span>(minor_chord,    <span class="dv">3</span>),</span>
-<span id="cb6-54"><a href="#cb6-54"></a>)</span>
-<span id="cb6-55"><a href="#cb6-55"></a></span>
-<span id="cb6-56"><a href="#cb6-56"></a>key_templates &lt;-</span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="st">    </span><span class="kw">tribble</span>(</span>
-<span id="cb6-58"><a href="#cb6-58"></a>        <span class="op">~</span>name    , <span class="op">~</span>template,</span>
-<span id="cb6-59"><a href="#cb6-59"></a>        <span class="st">'Gb:maj'</span>, <span class="kw">circshift</span>(major_key,  <span class="dv">6</span>),</span>
-<span id="cb6-60"><a href="#cb6-60"></a>        <span class="st">'Bb:min'</span>, <span class="kw">circshift</span>(minor_key, <span class="dv">10</span>),</span>
-<span id="cb6-61"><a href="#cb6-61"></a>        <span class="st">'Db:maj'</span>, <span class="kw">circshift</span>(major_key,  <span class="dv">1</span>),</span>
-<span id="cb6-62"><a href="#cb6-62"></a>        <span class="st">'F:min'</span> , <span class="kw">circshift</span>(minor_key,  <span class="dv">5</span>),</span>
-<span id="cb6-63"><a href="#cb6-63"></a>        <span class="st">'Ab:maj'</span>, <span class="kw">circshift</span>(major_key,  <span class="dv">8</span>),</span>
-<span id="cb6-64"><a href="#cb6-64"></a>        <span class="st">'C:min'</span> , <span class="kw">circshift</span>(minor_key,  <span class="dv">0</span>),</span>
-<span id="cb6-65"><a href="#cb6-65"></a>        <span class="st">'Eb:maj'</span>, <span class="kw">circshift</span>(major_key,  <span class="dv">3</span>),</span>
-<span id="cb6-66"><a href="#cb6-66"></a>        <span class="st">'G:min'</span> , <span class="kw">circshift</span>(minor_key,  <span class="dv">7</span>),</span>
-<span id="cb6-67"><a href="#cb6-67"></a>        <span class="st">'Bb:maj'</span>, <span class="kw">circshift</span>(major_key, <span class="dv">10</span>),</span>
-<span id="cb6-68"><a href="#cb6-68"></a>        <span class="st">'D:min'</span> , <span class="kw">circshift</span>(minor_key,  <span class="dv">2</span>),</span>
-<span id="cb6-69"><a href="#cb6-69"></a>        <span class="st">'F:maj'</span> , <span class="kw">circshift</span>(major_key,  <span class="dv">5</span>),</span>
-<span id="cb6-70"><a href="#cb6-70"></a>        <span class="st">'A:min'</span> , <span class="kw">circshift</span>(minor_key,  <span class="dv">9</span>),</span>
-<span id="cb6-71"><a href="#cb6-71"></a>        <span class="st">'C:maj'</span> , <span class="kw">circshift</span>(major_key,  <span class="dv">0</span>),</span>
-<span id="cb6-72"><a href="#cb6-72"></a>        <span class="st">'E:min'</span> , <span class="kw">circshift</span>(minor_key,  <span class="dv">4</span>),</span>
-<span id="cb6-73"><a href="#cb6-73"></a>        <span class="st">'G:maj'</span> , <span class="kw">circshift</span>(major_key,  <span class="dv">7</span>),</span>
-<span id="cb6-74"><a href="#cb6-74"></a>        <span class="st">'B:min'</span> , <span class="kw">circshift</span>(minor_key, <span class="dv">11</span>),</span>
-<span id="cb6-75"><a href="#cb6-75"></a>        <span class="st">'D:maj'</span> , <span class="kw">circshift</span>(major_key,  <span class="dv">2</span>),</span>
-<span id="cb6-76"><a href="#cb6-76"></a>        <span class="st">'F#:min'</span>, <span class="kw">circshift</span>(minor_key,  <span class="dv">6</span>),</span>
-<span id="cb6-77"><a href="#cb6-77"></a>        <span class="st">'A:maj'</span> , <span class="kw">circshift</span>(major_key,  <span class="dv">9</span>),</span>
-<span id="cb6-78"><a href="#cb6-78"></a>        <span class="st">'C#:min'</span>, <span class="kw">circshift</span>(minor_key,  <span class="dv">1</span>),</span>
-<span id="cb6-79"><a href="#cb6-79"></a>        <span class="st">'E:maj'</span> , <span class="kw">circshift</span>(major_key,  <span class="dv">4</span>),</span>
-<span id="cb6-80"><a href="#cb6-80"></a>        <span class="st">'G#:min'</span>, <span class="kw">circshift</span>(minor_key,  <span class="dv">8</span>),</span>
-<span id="cb6-81"><a href="#cb6-81"></a>        <span class="st">'B:maj'</span> , <span class="kw">circshift</span>(major_key, <span class="dv">11</span>),</span>
-<span id="cb6-82"><a href="#cb6-82"></a>        <span class="st">'D#:min'</span>, <span class="kw">circshift</span>(minor_key,  <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">circshift</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">v</span>, <span class="va">n</span><span class="op">)</span> <span class="op">{</span><span class="kw">if</span> <span class="op">(</span><span class="va">n</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="va">v</span> <span class="kw">else</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">n</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">v</span>, <span class="op">-</span><span class="va">n</span><span class="op">)</span><span class="op">)</span><span class="op">}</span>
+                                    
+    <span class="co"># C     C#    D     Eb    E     F     F#    G     Ab    A     Bb    B </span>
+<span class="va">major_chord</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">0</span><span class="op">)</span>
+<span class="va">minor_chord</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">0</span><span class="op">)</span>
+<span class="va">seventh_chord</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">1</span>,    <span class="fl">0</span>,    <span class="fl">0</span>,    <span class="fl">1</span>,    <span class="fl">0</span><span class="op">)</span>
+
+<span class="va">major_key</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6.35</span>, <span class="fl">2.23</span>, <span class="fl">3.48</span>, <span class="fl">2.33</span>, <span class="fl">4.38</span>, <span class="fl">4.09</span>, <span class="fl">2.52</span>, <span class="fl">5.19</span>, <span class="fl">2.39</span>, <span class="fl">3.66</span>, <span class="fl">2.29</span>, <span class="fl">2.88</span><span class="op">)</span>
+<span class="va">minor_key</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6.33</span>, <span class="fl">2.68</span>, <span class="fl">3.52</span>, <span class="fl">5.38</span>, <span class="fl">2.60</span>, <span class="fl">3.53</span>, <span class="fl">2.54</span>, <span class="fl">4.75</span>, <span class="fl">3.98</span>, <span class="fl">2.69</span>, <span class="fl">3.34</span>, <span class="fl">3.17</span><span class="op">)</span>
+
+<span class="va">chord_templates</span> <span class="op">&lt;-</span>
+    <span class="fu">tribble</span><span class="op">(</span>
+        <span class="op">~</span><span class="va">name</span>  , <span class="op">~</span><span class="va">template</span>,
+        <span class="st">'Gb:7'</span>  , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">6</span><span class="op">)</span>,
+        <span class="st">'Gb:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">6</span><span class="op">)</span>,
+        <span class="st">'Bb:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,   <span class="fl">10</span><span class="op">)</span>,
+        <span class="st">'Db:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">1</span><span class="op">)</span>,
+        <span class="st">'F:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">5</span><span class="op">)</span>,
+        <span class="st">'Ab:7'</span>  , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">8</span><span class="op">)</span>,
+        <span class="st">'Ab:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">8</span><span class="op">)</span>,
+        <span class="st">'C:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">0</span><span class="op">)</span>,
+        <span class="st">'Eb:7'</span>  , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">3</span><span class="op">)</span>,
+        <span class="st">'Eb:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">3</span><span class="op">)</span>,
+        <span class="st">'G:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">7</span><span class="op">)</span>,
+        <span class="st">'Bb:7'</span>  , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>, <span class="fl">10</span><span class="op">)</span>,
+        <span class="st">'Bb:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,   <span class="fl">10</span><span class="op">)</span>,
+        <span class="st">'D:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">2</span><span class="op">)</span>,
+        <span class="st">'F:7'</span>   , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">5</span><span class="op">)</span>,
+        <span class="st">'F:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">5</span><span class="op">)</span>,
+        <span class="st">'A:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">9</span><span class="op">)</span>,
+        <span class="st">'C:7'</span>   , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">0</span><span class="op">)</span>,
+        <span class="st">'C:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">0</span><span class="op">)</span>,
+        <span class="st">'E:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">4</span><span class="op">)</span>,
+        <span class="st">'G:7'</span>   , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">7</span><span class="op">)</span>,
+        <span class="st">'G:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">7</span><span class="op">)</span>,
+        <span class="st">'B:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,   <span class="fl">11</span><span class="op">)</span>,
+        <span class="st">'D:7'</span>   , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">2</span><span class="op">)</span>,
+        <span class="st">'D:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">2</span><span class="op">)</span>,
+        <span class="st">'F#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">6</span><span class="op">)</span>,
+        <span class="st">'A:7'</span>   , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">9</span><span class="op">)</span>,
+        <span class="st">'A:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">9</span><span class="op">)</span>,
+        <span class="st">'C#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">1</span><span class="op">)</span>,
+        <span class="st">'E:7'</span>   , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>,  <span class="fl">4</span><span class="op">)</span>,
+        <span class="st">'E:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,    <span class="fl">4</span><span class="op">)</span>,
+        <span class="st">'G#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">8</span><span class="op">)</span>,
+        <span class="st">'B:7'</span>   , <span class="fu">circshift</span><span class="op">(</span><span class="va">seventh_chord</span>, <span class="fl">11</span><span class="op">)</span>,
+        <span class="st">'B:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_chord</span>,   <span class="fl">11</span><span class="op">)</span>,
+        <span class="st">'D#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_chord</span>,    <span class="fl">3</span><span class="op">)</span>,
+<span class="op">)</span>
+
+<span class="va">key_templates</span> <span class="op">&lt;-</span>
+    <span class="fu">tribble</span><span class="op">(</span>
+        <span class="op">~</span><span class="va">name</span>    , <span class="op">~</span><span class="va">template</span>,
+        <span class="st">'Gb:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">6</span><span class="op">)</span>,
+        <span class="st">'Bb:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>, <span class="fl">10</span><span class="op">)</span>,
+        <span class="st">'Db:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">1</span><span class="op">)</span>,
+        <span class="st">'F:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">5</span><span class="op">)</span>,
+        <span class="st">'Ab:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">8</span><span class="op">)</span>,
+        <span class="st">'C:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">0</span><span class="op">)</span>,
+        <span class="st">'Eb:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">3</span><span class="op">)</span>,
+        <span class="st">'G:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">7</span><span class="op">)</span>,
+        <span class="st">'Bb:maj'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>, <span class="fl">10</span><span class="op">)</span>,
+        <span class="st">'D:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">2</span><span class="op">)</span>,
+        <span class="st">'F:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">5</span><span class="op">)</span>,
+        <span class="st">'A:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">9</span><span class="op">)</span>,
+        <span class="st">'C:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">0</span><span class="op">)</span>,
+        <span class="st">'E:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">4</span><span class="op">)</span>,
+        <span class="st">'G:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">7</span><span class="op">)</span>,
+        <span class="st">'B:min'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>, <span class="fl">11</span><span class="op">)</span>,
+        <span class="st">'D:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">2</span><span class="op">)</span>,
+        <span class="st">'F#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">6</span><span class="op">)</span>,
+        <span class="st">'A:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">9</span><span class="op">)</span>,
+        <span class="st">'C#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">1</span><span class="op">)</span>,
+        <span class="st">'E:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>,  <span class="fl">4</span><span class="op">)</span>,
+        <span class="st">'G#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">8</span><span class="op">)</span>,
+        <span class="st">'B:maj'</span> , <span class="fu">circshift</span><span class="op">(</span><span class="va">major_key</span>, <span class="fl">11</span><span class="op">)</span>,
+        <span class="st">'D#:min'</span>, <span class="fu">circshift</span><span class="op">(</span><span class="va">minor_key</span>,  <span class="fl">3</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="chordograms-and-keygrams" class="section level2">
 <h2 class="hasAnchor">
 <a href="#chordograms-and-keygrams" class="anchor"></a>Chordograms and Keygrams</h2>
 <p>Armed with these templates, we can make chordograms and keygrams for individual pieces. Similar to previous weeks, we start by choosing a level of hierarchy and then summarise the chroma features a that level. Higher levels like <code>section</code> are more appropriate for key profiles; lower levels like <code>beat</code> are more appropriate for chord profiles.</p>
 <p>The following code fetches the analysis for Zager and Evans’s ‘In the Year 2525’ (1969).</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>twenty_five &lt;-<span class="st"> </span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'5UVsbUV0Kh033cqsZ5sLQi'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="st">    </span><span class="kw"><a href="../reference/compmus_align.html">compmus_align</a></span>(sections, segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="st">    </span><span class="kw">select</span>(sections) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(sections) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
-<span id="cb7-6"><a href="#cb7-6"></a>        <span class="dt">pitches =</span> </span>
-<span id="cb7-7"><a href="#cb7-7"></a>            <span class="kw">map</span>(segments, </span>
-<span id="cb7-8"><a href="#cb7-8"></a>                compmus_summarise, pitches, </span>
-<span id="cb7-9"><a href="#cb7-9"></a>                <span class="dt">method =</span> <span class="st">'mean'</span>, <span class="dt">norm =</span> <span class="st">'manhattan'</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">twenty_five</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'5UVsbUV0Kh033cqsZ5sLQi'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/compmus_align.html">compmus_align</a></span><span class="op">(</span><span class="va">sections</span>, <span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">sections</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">sections</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">mutate</span><span class="op">(</span>
+        pitches <span class="op">=</span> 
+            <span class="fu">map</span><span class="op">(</span><span class="va">segments</span>, 
+                <span class="va">compmus_summarise</span>, <span class="va">pitches</span>, 
+                method <span class="op">=</span> <span class="st">'mean'</span>, norm <span class="op">=</span> <span class="st">'manhattan'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>The new helper function <code>compmus_match_pitch_template</code> compares the averaged chroma vectors against templates to yield a chordo- or keygram. The two truck-driver modulations from G-sharp minor through A minor to B-flat minor are clear.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>twenty_five <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="st">    </span><span class="kw"><a href="../reference/compmus_match_pitch_template.html">compmus_match_pitch_template</a></span>(key_templates, <span class="st">'euclidean'</span>, <span class="st">'manhattan'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="st">    </span><span class="kw">ggplot</span>(</span>
-<span id="cb8-4"><a href="#cb8-4"></a>        <span class="kw">aes</span>(<span class="dt">x =</span> start <span class="op">+</span><span class="st"> </span>duration <span class="op">/</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">width =</span> duration, <span class="dt">y =</span> name, <span class="dt">fill =</span> d)) <span class="op">+</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="st">    </span><span class="kw">geom_tile</span>() <span class="op">+</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="st">    </span><span class="kw">scale_fill_viridis_c</span>(<span class="dt">option =</span> <span class="st">'E'</span>, <span class="dt">guide =</span> <span class="st">'none'</span>) <span class="op">+</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="st">    </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Time (s)'</span>, <span class="dt">y =</span> <span class="st">''</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">twenty_five</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/compmus_match_pitch_template.html">compmus_match_pitch_template</a></span><span class="op">(</span><span class="va">key_templates</span>, <span class="st">'euclidean'</span>, <span class="st">'manhattan'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">ggplot</span><span class="op">(</span>
+        <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">start</span> <span class="op">+</span> <span class="va">duration</span> <span class="op">/</span> <span class="fl">2</span>, width <span class="op">=</span> <span class="va">duration</span>, y <span class="op">=</span> <span class="va">name</span>, fill <span class="op">=</span> <span class="va">d</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">geom_tile</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">scale_fill_viridis_c</span><span class="op">(</span>option <span class="op">=</span> <span class="st">'E'</span>, guide <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">'Time (s)'</span>, y <span class="op">=</span> <span class="st">''</span><span class="op">)</span></code></pre></div>
 <p><img src="compmus-w10_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 <p>Once you have the code running, try the following adaptations.</p>
 <ul>
@@ -293,81 +298,76 @@
 <a href="#track-level-summaries" class="anchor"></a>Track-Level Summaries</h2>
 <p>Several students have asked how to incorporate the low-level audio analysis features at the playlist level. Here is one strategy for doing so, which we will extend next week. As an example, let’s consider the difference between Spotify’s ‘Sound of’ playlists for bebop and big band.</p>
 <p>After loading the playlists, we can use the helper function <code>add_audio_analysis</code> to fetch the low-level features for every track. Adding audio analysis for every track is a slow operation, and so for the purposes of this exercise, we will limit ourselves to 30 tracks from each playlist. The results makes heavy use of list-columns, which are discussed in more detail in the optional <code>purrr</code> exercise on DataCamp.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>bebop &lt;-</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/pkg/spotifyr/man/get_playlist_audio_features.html">get_playlist_audio_features</a></span>(</span>
-<span id="cb9-3"><a href="#cb9-3"></a>        <span class="st">'thesoundsofspotify'</span>, </span>
-<span id="cb9-4"><a href="#cb9-4"></a>        <span class="st">'55s8gstHcaCyfU47mQgLrB'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="st">    </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="st">    </span><span class="kw"><a href="../reference/add_audio_analysis.html">add_audio_analysis</a></span>()</span>
-<span id="cb9-7"><a href="#cb9-7"></a>bigband &lt;-</span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/pkg/spotifyr/man/get_playlist_audio_features.html">get_playlist_audio_features</a></span>(</span>
-<span id="cb9-9"><a href="#cb9-9"></a>        <span class="st">'thesoundsofspotify'</span>, </span>
-<span id="cb9-10"><a href="#cb9-10"></a>        <span class="st">'2cjIvuw4VVOQSeUAZfNiqY'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="st">    </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="st">    </span><span class="kw"><a href="../reference/add_audio_analysis.html">add_audio_analysis</a></span>()</span>
-<span id="cb9-13"><a href="#cb9-13"></a>jazz &lt;-</span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="st">    </span>bebop <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">genre =</span> <span class="st">"Bebop"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="st">    </span><span class="kw">bind_rows</span>(bigband <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">genre =</span> <span class="st">"Big Band"</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">bebop</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/spotifyr/man/get_playlist_audio_features.html">get_playlist_audio_features</a></span><span class="op">(</span>
+        <span class="st">'thesoundsofspotify'</span>, 
+        <span class="st">'55s8gstHcaCyfU47mQgLrB'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">slice</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/add_audio_analysis.html">add_audio_analysis</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">bigband</span> <span class="op">&lt;-</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/spotifyr/man/get_playlist_audio_features.html">get_playlist_audio_features</a></span><span class="op">(</span>
+        <span class="st">'thesoundsofspotify'</span>, 
+        <span class="st">'2cjIvuw4VVOQSeUAZfNiqY'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">slice</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="../reference/add_audio_analysis.html">add_audio_analysis</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">jazz</span> <span class="op">&lt;-</span>
+    <span class="va">bebop</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>genre <span class="op">=</span> <span class="st">"Bebop"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">bind_rows</span><span class="op">(</span><span class="va">bigband</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>genre <span class="op">=</span> <span class="st">"Big Band"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>For non-vector features, we can use the <code>summarise_at</code> command to collect summary statistics like mean and standard deviation.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>jazz <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
-<span id="cb10-3"><a href="#cb10-3"></a>        <span class="dt">sections =</span> </span>
-<span id="cb10-4"><a href="#cb10-4"></a>            <span class="kw">map</span>(</span>
-<span id="cb10-5"><a href="#cb10-5"></a>                sections, </span>
-<span id="cb10-6"><a href="#cb10-6"></a>                summarise_at, </span>
-<span id="cb10-7"><a href="#cb10-7"></a>                <span class="kw">vars</span>(tempo, loudness, duration), </span>
-<span id="cb10-8"><a href="#cb10-8"></a>                <span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="dt">section_mean =</span> mean, <span class="dt">section_sd =</span> sd))) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="st">    </span><span class="kw">unnest</span>(sections) <span class="op">%&gt;%</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a><span class="st">    </span><span class="kw">ggplot</span>(</span>
-<span id="cb10-11"><a href="#cb10-11"></a>        <span class="kw">aes</span>(</span>
-<span id="cb10-12"><a href="#cb10-12"></a>            <span class="dt">x =</span> tempo, </span>
-<span id="cb10-13"><a href="#cb10-13"></a>            <span class="dt">y =</span> tempo_section_sd, </span>
-<span id="cb10-14"><a href="#cb10-14"></a>            <span class="dt">colour =</span> genre, </span>
-<span id="cb10-15"><a href="#cb10-15"></a>            <span class="dt">alpha =</span> loudness)) <span class="op">+</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> duration <span class="op">/</span><span class="st"> </span><span class="dv">60</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb10-17"><a href="#cb10-17"></a><span class="st">    </span><span class="kw">geom_rug</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb10-18"><a href="#cb10-18"></a><span class="st">    </span><span class="kw">theme_minimal</span>() <span class="op">+</span></span>
-<span id="cb10-19"><a href="#cb10-19"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span>(<span class="dv">0</span>, <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb10-20"><a href="#cb10-20"></a><span class="st">    </span><span class="kw">labs</span>(</span>
-<span id="cb10-21"><a href="#cb10-21"></a>        <span class="dt">x =</span> <span class="st">'Mean Tempo (bpm)'</span>, </span>
-<span id="cb10-22"><a href="#cb10-22"></a>        <span class="dt">y =</span> <span class="st">'SD Tempo'</span>, </span>
-<span id="cb10-23"><a href="#cb10-23"></a>        <span class="dt">colour =</span> <span class="st">'Genre'</span>, </span>
-<span id="cb10-24"><a href="#cb10-24"></a>        <span class="dt">size =</span> <span class="st">'Duration (min)'</span>, </span>
-<span id="cb10-25"><a href="#cb10-25"></a>        <span class="dt">alpha =</span> <span class="st">'Volume (dBFS)'</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 13 rows containing missing values (geom_point).</code></pre>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">jazz</span> <span class="op">%&gt;%</span> 
+    <span class="fu">mutate</span><span class="op">(</span>
+        sections <span class="op">=</span> 
+            <span class="fu">map</span><span class="op">(</span>
+                <span class="va">sections</span>, 
+                <span class="va">summarise_at</span>, 
+                <span class="fu">vars</span><span class="op">(</span><span class="va">tempo</span>, <span class="va">loudness</span>, <span class="va">duration</span><span class="op">)</span>, 
+                <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>section_mean <span class="op">=</span> <span class="va">mean</span>, section_sd <span class="op">=</span> <span class="va">sd</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">unnest</span><span class="op">(</span><span class="va">sections</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">ggplot</span><span class="op">(</span>
+        <span class="fu">aes</span><span class="op">(</span>
+            x <span class="op">=</span> <span class="va">tempo</span>, 
+            y <span class="op">=</span> <span class="va">tempo_section_sd</span>, 
+            colour <span class="op">=</span> <span class="va">genre</span>, 
+            alpha <span class="op">=</span> <span class="va">loudness</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>size <span class="op">=</span> <span class="va">duration</span> <span class="op">/</span> <span class="fl">60</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu">geom_rug</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.window.html">ylim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu">labs</span><span class="op">(</span>
+        x <span class="op">=</span> <span class="st">'Mean Tempo (bpm)'</span>, 
+        y <span class="op">=</span> <span class="st">'SD Tempo'</span>, 
+        colour <span class="op">=</span> <span class="st">'Genre'</span>, 
+        size <span class="op">=</span> <span class="st">'Duration (min)'</span>, 
+        alpha <span class="op">=</span> <span class="st">'Volume (dBFS)'</span><span class="op">)</span></code></pre></div>
+<pre><code>## Warning: Removed 12 rows containing missing values (geom_point).</code></pre>
 <p><img src="compmus-w10_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 <p>When working with vector-valued features like chroma or timbre, we need to use functions from the previous weeks. Here is an example of comparing average timbre coefficients in bebop and big band. Coefficient 6 looks like the most promising marker distinguishing these genres, but we should verify that with cepstrograms and listening tests of specific pieces, supported by the Spotify documentation for its timbre features.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>jazz <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="st">    </span><span class="kw">mutate</span>(</span>
-<span id="cb12-3"><a href="#cb12-3"></a>        <span class="dt">timbre =</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>            <span class="kw">map</span>(</span>
-<span id="cb12-5"><a href="#cb12-5"></a>                segments,</span>
-<span id="cb12-6"><a href="#cb12-6"></a>                compmus_summarise,</span>
-<span id="cb12-7"><a href="#cb12-7"></a>                timbre,</span>
-<span id="cb12-8"><a href="#cb12-8"></a>                <span class="dt">method =</span> <span class="st">'mean'</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb12-9"><a href="#cb12-9"></a><span class="st">    </span><span class="kw">select</span>(genre, timbre) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb12-10"><a href="#cb12-10"></a><span class="st">    </span>compmus_gather_timbre <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> basis, <span class="dt">y =</span> value, <span class="dt">fill =</span> genre)) <span class="op">+</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Spotify Timbre Coefficients'</span>, <span class="dt">y =</span> <span class="st">''</span>, <span class="dt">fill =</span> <span class="st">'Genre'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">jazz</span> <span class="op">%&gt;%</span> 
+    <span class="fu">mutate</span><span class="op">(</span>
+        timbre <span class="op">=</span>
+            <span class="fu">map</span><span class="op">(</span>
+                <span class="va">segments</span>,
+                <span class="va">compmus_summarise</span>,
+                <span class="va">timbre</span>,
+                method <span class="op">=</span> <span class="st">'mean'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu">select</span><span class="op">(</span><span class="va">genre</span>, <span class="va">timbre</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="va">compmus_gather_timbre</span> <span class="op">%&gt;%</span> 
+    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">basis</span>, y <span class="op">=</span> <span class="va">value</span>, fill <span class="op">=</span> <span class="va">genre</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">geom_violin</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">'Spotify Timbre Coefficients'</span>, y <span class="op">=</span> <span class="st">''</span>, fill <span class="op">=</span> <span class="st">'Genre'</span><span class="op">)</span></code></pre></div>
 <p><img src="compmus-w10_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#set-up">Set-up</a></li>
-      <li><a href="#tonal-templates">Tonal Templates</a></li>
-      <li><a href="#chordograms-and-keygrams">Chordograms and Keygrams</a></li>
-      <li><a href="#track-level-summaries">Track-Level Summaries</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
@@ -378,7 +378,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

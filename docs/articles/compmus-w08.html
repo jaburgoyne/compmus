@@ -6,19 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 8 · Chroma Features • compmus</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Week 8 · Chroma Features">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="compmus">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9006</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9007</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -81,10 +81,10 @@
 
       
 
-      </header><script src="compmus-w08_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
+      </header><script src="compmus-w08_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Week 8 · Chroma Features</h1>
+      <h1 data-toc-skip>Week 8 · Chroma Features</h1>
                         <h4 class="author">John Ashley Burgoyne</h4>
             
             <h4 class="date">20 February 2019</h4>
@@ -101,17 +101,19 @@
 <h2 class="hasAnchor">
 <a href="#set-up" class="anchor"></a>Set-up</h2>
 <p>We begin by loading the libraries we need for analysis.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
-## ✓ tibble  2.1.3     ✓ dplyr   0.8.4
-## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.0.6     ✓ dplyr   1.0.4
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(spotifyr)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(compmus)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/charlie86/spotifyr">spotifyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">compmus</span><span class="op">)</span></code></pre></div>
 <p>In order for the code below to run, it is also necessary to set up Spotify login credentials for <code>spotifyr</code>.</p>
 </div>
 <div id="chromagrams" class="section level2">
@@ -120,26 +122,28 @@
 <p>One of the helper functions this week, <code>get_tidy_audio_analysis</code>, does just what it says, for one track at a time. Spotify’s audio analysis is thorough, and basic <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/">documentation</a> is available for everything in it.</p>
 <p>Let’s pull down the analysis of a recording of Steve Reich’s ‘Music for Pieces of Wood’ (well worth a listen if you don’t know the piece). For reasons that will become clearer next week, one needs to <code>select</code> the desired field out of the analysis – in this case, <code>segments</code> – and then <code>unnest</code> it.</p>
 <p>Spotify segments have a lot of information inside them, but this week, we’ll focus just on <code>start</code>, <code>duration</code>, and <code>pitches</code>: the three tools we need to make a chromagram.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>wood &lt;-<span class="st"> </span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'6IQILcYkN2S2eSu5IHoPEH'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">wood</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'6IQILcYkN2S2eSu5IHoPEH'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></code></pre></div>
 <p>The key to making a chromogram is <code>geom_tile</code>. It is powerful but has it’s wrinkles. Much of the code in the next block is code that you will simply need to copy every time you use it; next week we’ll develop a better understanding of what is going on.</p>
 <p>First, we want to choose a normalisation for the chroma vectors: Manhattan, Euclidean, or Chebyshev, using the new helper function <code>compmus_normalise</code> (with a little help from the <code>map</code> function, which we’ll see more of next week). <em>The name of the normalisation is the only thing in that line of code that you need to change.</em></p>
 <p>Then we need to convert the data to so-called long format: a new row for each pitch class. There is a helper function <code>compmus_gather_chroma</code> to do that.</p>
 <p>Finally we can plot, but beware that ggplot <em>centres</em> each tile on the <em>x</em> or <em>y</em> coordinate instead of using the left corner. Use the duration to make a correction for it.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>wood <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pitches =</span> <span class="kw">map</span>(pitches, compmus_normalise, <span class="st">'euclidean'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="st">    </span>compmus_gather_chroma <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="st">    </span><span class="kw">ggplot</span>(</span>
-<span id="cb7-5"><a href="#cb7-5"></a>        <span class="kw">aes</span>(</span>
-<span id="cb7-6"><a href="#cb7-6"></a>            <span class="dt">x =</span> start <span class="op">+</span><span class="st"> </span>duration <span class="op">/</span><span class="st"> </span><span class="dv">2</span>, </span>
-<span id="cb7-7"><a href="#cb7-7"></a>            <span class="dt">width =</span> duration, </span>
-<span id="cb7-8"><a href="#cb7-8"></a>            <span class="dt">y =</span> pitch_class, </span>
-<span id="cb7-9"><a href="#cb7-9"></a>            <span class="dt">fill =</span> value)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="st">    </span><span class="kw">geom_tile</span>() <span class="op">+</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Time (s)'</span>, <span class="dt">y =</span> <span class="ot">NULL</span>, <span class="dt">fill =</span> <span class="st">'Magnitude'</span>) <span class="op">+</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="st">    </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">wood</span> <span class="op">%&gt;%</span> 
+    <span class="fu">mutate</span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'euclidean'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="va">compmus_gather_chroma</span> <span class="op">%&gt;%</span> 
+    <span class="fu">ggplot</span><span class="op">(</span>
+        <span class="fu">aes</span><span class="op">(</span>
+            x <span class="op">=</span> <span class="va">start</span> <span class="op">+</span> <span class="va">duration</span> <span class="op">/</span> <span class="fl">2</span>, 
+            width <span class="op">=</span> <span class="va">duration</span>, 
+            y <span class="op">=</span> <span class="va">pitch_class</span>, 
+            fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu">geom_tile</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">'Time (s)'</span>, y <span class="op">=</span> <span class="cn">NULL</span>, fill <span class="op">=</span> <span class="st">'Magnitude'</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="compmus-w08_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
 <div id="your-turn" class="section level3">
 <h3 class="hasAnchor">
@@ -187,57 +191,59 @@
 </tbody>
 </table>
 <p>Let’s look at seven recordings of Josquin des Prez’s ‘Ave Maria’. The comment lines break them down into three pitch levels.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>tallis &lt;-<span class="st"> </span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'2J3Mmybwue0jyQ0UVMYurH'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span>
-<span id="cb8-5"><a href="#cb8-5"></a>chapelle &lt;-<span class="st"> </span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'4ccw2IcnFt1Jv9LqQCOYDi'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span>
-<span id="cb8-9"><a href="#cb8-9"></a>cambridge &lt;-<span class="st"> </span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'54cAT1TCFaZbLOB2i1y61h'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span>
-<span id="cb8-13"><a href="#cb8-13"></a></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="co">###</span></span>
-<span id="cb8-15"><a href="#cb8-15"></a></span>
-<span id="cb8-16"><a href="#cb8-16"></a>oxford &lt;-<span class="st"> </span></span>
-<span id="cb8-17"><a href="#cb8-17"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'5QyUsMY40MQ1VebZXSaonU'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-18"><a href="#cb8-18"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-19"><a href="#cb8-19"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span>
-<span id="cb8-20"><a href="#cb8-20"></a>chanticleer &lt;-<span class="st"> </span></span>
-<span id="cb8-21"><a href="#cb8-21"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'1bocG1N8LM7MSgj9T1n3XH'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-22"><a href="#cb8-22"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-23"><a href="#cb8-23"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span>
-<span id="cb8-24"><a href="#cb8-24"></a></span>
-<span id="cb8-25"><a href="#cb8-25"></a><span class="co">###</span></span>
-<span id="cb8-26"><a href="#cb8-26"></a></span>
-<span id="cb8-27"><a href="#cb8-27"></a>hilliard &lt;-<span class="st"> </span></span>
-<span id="cb8-28"><a href="#cb8-28"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'2rXEyq50luqaFNC9DkcU6k'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-29"><a href="#cb8-29"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-30"><a href="#cb8-30"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span>
-<span id="cb8-31"><a href="#cb8-31"></a>gabrieli &lt;-<span class="st"> </span></span>
-<span id="cb8-32"><a href="#cb8-32"></a><span class="st">    </span><span class="kw"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span>(<span class="st">'4NnJ4Jes8a8mQUfXhwuITx'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-33"><a href="#cb8-33"></a><span class="st">    </span><span class="kw">select</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">unnest</span>(segments) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb8-34"><a href="#cb8-34"></a><span class="st">    </span><span class="kw">select</span>(start, duration, pitches)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tallis</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'2J3Mmybwue0jyQ0UVMYurH'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
+<span class="va">chapelle</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'4ccw2IcnFt1Jv9LqQCOYDi'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
+<span class="va">cambridge</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'54cAT1TCFaZbLOB2i1y61h'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
+
+<span class="co">###</span>
+
+<span class="va">oxford</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'5QyUsMY40MQ1VebZXSaonU'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
+<span class="va">chanticleer</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'1bocG1N8LM7MSgj9T1n3XH'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
+
+<span class="co">###</span>
+
+<span class="va">hilliard</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'2rXEyq50luqaFNC9DkcU6k'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
+<span class="va">gabrieli</span> <span class="op">&lt;-</span> 
+    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'4NnJ4Jes8a8mQUfXhwuITx'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></code></pre></div>
 <p>The <code>compmus_long_distance</code> helper function gets everything ready for <code>geom_tile</code>. It takes two data frames (don’t forget to normalise the chroma vectors), the feature we want to compute distance over (<code>pitches</code> in our case), and any of the distance measures in the table above. It returns a long table ready for plotting, with <code>xstart</code>, <code>xduration</code>, <code>ystart</code>, and <code>yduration</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw"><a href="../reference/compmus_long_distance.html">compmus_long_distance</a></span>(</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    tallis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pitches =</span> <span class="kw">map</span>(pitches, compmus_normalise, <span class="st">'chebyshev'</span>)),</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    chapelle <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">pitches =</span> <span class="kw">map</span>(pitches, compmus_normalise, <span class="st">'chebyshev'</span>)),</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="dt">feature =</span> pitches,</span>
-<span id="cb9-5"><a href="#cb9-5"></a>    <span class="dt">method =</span> <span class="st">'euclidean'</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="st">    </span><span class="kw">ggplot</span>(</span>
-<span id="cb9-7"><a href="#cb9-7"></a>        <span class="kw">aes</span>(</span>
-<span id="cb9-8"><a href="#cb9-8"></a>            <span class="dt">x =</span> xstart <span class="op">+</span><span class="st"> </span>xduration <span class="op">/</span><span class="st"> </span><span class="dv">2</span>, </span>
-<span id="cb9-9"><a href="#cb9-9"></a>            <span class="dt">width =</span> xduration,</span>
-<span id="cb9-10"><a href="#cb9-10"></a>            <span class="dt">y =</span> ystart <span class="op">+</span><span class="st"> </span>yduration <span class="op">/</span><span class="st"> </span><span class="dv">2</span>,</span>
-<span id="cb9-11"><a href="#cb9-11"></a>            <span class="dt">height =</span> yduration,</span>
-<span id="cb9-12"><a href="#cb9-12"></a>            <span class="dt">fill =</span> d)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="st">    </span><span class="kw">geom_tile</span>() <span class="op">+</span></span>
-<span id="cb9-14"><a href="#cb9-14"></a><span class="st">    </span><span class="kw">scale_fill_continuous</span>(<span class="dt">type =</span> <span class="st">'viridis'</span>, <span class="dt">guide =</span> <span class="st">'none'</span>) <span class="op">+</span></span>
-<span id="cb9-15"><a href="#cb9-15"></a><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'The Tallis Scholars'</span>, <span class="dt">y =</span> <span class="st">'La Chapelle Royale'</span>) <span class="op">+</span></span>
-<span id="cb9-16"><a href="#cb9-16"></a><span class="st">    </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/compmus_long_distance.html">compmus_long_distance</a></span><span class="op">(</span>
+    <span class="va">tallis</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'chebyshev'</span><span class="op">)</span><span class="op">)</span>,
+    <span class="va">chapelle</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'chebyshev'</span><span class="op">)</span><span class="op">)</span>,
+    feature <span class="op">=</span> <span class="va">pitches</span>,
+    method <span class="op">=</span> <span class="st">'euclidean'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+    <span class="fu">ggplot</span><span class="op">(</span>
+        <span class="fu">aes</span><span class="op">(</span>
+            x <span class="op">=</span> <span class="va">xstart</span> <span class="op">+</span> <span class="va">xduration</span> <span class="op">/</span> <span class="fl">2</span>, 
+            width <span class="op">=</span> <span class="va">xduration</span>,
+            y <span class="op">=</span> <span class="va">ystart</span> <span class="op">+</span> <span class="va">yduration</span> <span class="op">/</span> <span class="fl">2</span>,
+            height <span class="op">=</span> <span class="va">yduration</span>,
+            fill <span class="op">=</span> <span class="va">d</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+    <span class="fu">geom_tile</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">scale_fill_continuous</span><span class="op">(</span>type <span class="op">=</span> <span class="st">'viridis'</span>, guide <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">'The Tallis Scholars'</span>, y <span class="op">=</span> <span class="st">'La Chapelle Royale'</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="compmus-w08_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 <div id="your-turn-1" class="section level3">
 <h3 class="hasAnchor">
@@ -259,18 +265,11 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#set-up">Set-up</a></li>
-      <li><a href="#chromagrams">Chromagrams</a></li>
-      <li><a href="#dynamic-time-warping">Dynamic Time Warping</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
@@ -281,7 +280,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
