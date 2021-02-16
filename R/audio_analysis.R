@@ -19,24 +19,22 @@
 #' get_tidy_audio_analysis("6IQILcYkN2S2eSu5IHoPEH")
 get_tidy_audio_analysis <- function(track_uri, ...) {
   spotifyr::get_track_audio_analysis(track_uri, ...) %>%
-    list() %>%
-    purrr::transpose() %>%
-    tibble::as_tibble() %>%
-    dplyr::mutate_at(
-      dplyr::vars(meta, track),
-      . %>% purrr::map(tibble::as_tibble)
+    tibble::enframe() %>%
+    tidyr::pivot_wider() %>%
+    dplyr::mutate(
+      dplyr::across(
+        c(meta, track, bars, beats, tatums, sections),
+        purrr::map,
+        tibble::as_tibble
+      ),
     ) %>%
     tidyr::unnest(cols = c(meta, track)) %>%
     dplyr::select(
       analyzer_version,
       duration,
-      dplyr::contains("fade"),
-      dplyr::ends_with("confidence"),
-      bars:segments
-    ) %>%
-    dplyr::mutate_at(
-      dplyr::vars(bars, beats, tatums, sections),
-      . %>% purrr::map(dplyr::bind_rows)
+      dplyr::contains("fade"), dplyr::ends_with("confidence"),
+      bars, beats, tatums,
+      sections, segments
     ) %>%
     dplyr::mutate(
       segments =
