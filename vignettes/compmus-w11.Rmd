@@ -55,6 +55,7 @@ pata_pata %>%
     mutate(pitches = map(pitches, compmus_normalise, 'clr')) %>% 
     arrange(start) %>% 
     mutate(pitches = map2(pitches, lag(pitches), `-`)) %>% 
+    slice(-1) %>% 
     compmus_gather_chroma %>% 
     ggplot(
         aes(
@@ -74,6 +75,7 @@ pata_pata %>%
 pata_pata %>% 
     arrange(start) %>% 
     mutate(timbre = map2(timbre, lag(timbre), `-`)) %>% 
+    slice(-1) %>% 
     compmus_gather_timbre %>% 
     ggplot(
         aes(
@@ -420,7 +422,15 @@ indie_deltas <-
             map(
                 segments,
                 mutate,
-                timbre = map2(timbre, lag(timbre), `-`))) %>% 
+                timbre = map2(timbre, lag(timbre), `-`))) %>%
+    mutate(
+        segments =
+            map(
+                segments,
+                slice,
+                -1
+            )
+    ) %>% 
     mutate(
         pitches =
             map(segments,
@@ -431,6 +441,6 @@ indie_deltas <-
                 segments,
                 compmus_summarise, timbre,
                 method = 'mean', na.rm = TRUE)) %>%
-    mutate_at(vars(pitches, timbre), map, bind_rows) %>% 
+    mutate_at(vars(pitches, timbre), map, bind_rows) %>%
     unnest(cols = c(pitches, timbre))
 ```

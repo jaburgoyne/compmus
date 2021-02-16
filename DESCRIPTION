@@ -30,8 +30,9 @@ Suggests:
     kknn,
     knitr,
     protoclust,
+    randomForest,
     rmarkdown,
     tidymodels,
     tidyverse
 VignetteBuilder: knitr
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
