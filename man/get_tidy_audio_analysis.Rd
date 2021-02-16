@@ -23,5 +23,5 @@ developer documentation} for details about the information included in an
 audio analysis.
 }
 \examples{
-get_tidy_audio_analysis('6IQILcYkN2S2eSu5IHoPEH')
+get_tidy_audio_analysis("6IQILcYkN2S2eSu5IHoPEH")
 }

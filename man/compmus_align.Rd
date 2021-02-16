@@ -18,7 +18,8 @@ corresponding to each \code{outer} segment.
 }
 \examples{
 library(tidyverse)
-get_tidy_audio_analysis('5ZLkc5RY1NM4FtGWEd6HOE') \%>\%
-    compmus_align(bars, segments) \%>\%
-    select(bars) \%>\% unnest(bars)
+get_tidy_audio_analysis("5ZLkc5RY1NM4FtGWEd6HOE") \%>\%
+  compmus_align(bars, segments) \%>\%
+  select(bars) \%>\%
+  unnest(bars)
 }

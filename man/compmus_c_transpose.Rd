@@ -17,8 +17,8 @@ Given a key estimate, transpose chroma vectors back to C.
 }
 \examples{
 library(tidyverse)
-get_playlist_audio_features('spotify', '37i9dQZF1DWWEcRhUVtL8n') \%>\%
-    slice(1:20) \%>\%
-    add_audio_analysis \%>\%
-    mutate(segments = map2(segments, key, compmus_c_transpose))
+spotifyr::get_playlist_audio_features("", "37i9dQZF1DWWEcRhUVtL8n") \%>\%
+  slice(1:20) \%>\%
+  add_audio_analysis() \%>\%
+  mutate(segments = map2(segments, key, compmus_c_transpose))
 }

@@ -38,6 +38,6 @@ Power is normalised to a max of 1 (Chebyshev norm) within each time point.
 }
 \examples{
 library(tidyverse)
-get_tidy_audio_analysis('6PJasPKAzNLSOzxeAH33j2') \%>\%
-    tempogram(window_size = 4, hop_size = 2)
+get_tidy_audio_analysis("6PJasPKAzNLSOzxeAH33j2") \%>\%
+  tempogram(window_size = 4, hop_size = 2)
 }

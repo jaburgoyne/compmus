@@ -38,7 +38,8 @@ The following methods are supported.
 
 \examples{
 library(tidyverse)
-get_tidy_audio_analysis('6IQILcYkN2S2eSu5IHoPEH') \%>\%
-    select(segments) \%>\% unnest(segments) \%>\%
-    mutate(pitches = map(pitches, compmus_normalise, 'euclidean'))
+get_tidy_audio_analysis("6IQILcYkN2S2eSu5IHoPEH") \%>\%
+  select(segments) \%>\%
+  unnest(segments) \%>\%
+  mutate(pitches = map(pitches, compmus_normalise, "euclidean"))
 }
