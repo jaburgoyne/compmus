@@ -1,7 +1,7 @@
 Package: compmus
 Type: Package
 Title: Support Functions for Computational Musicology
-Version: 0.0.0.9007
+Version: 0.0.0.9008
 Authors@R: person(
                c('John', 'Ashley'), 'Burgoyne', 
                email = 'j.a.burgoyne@uva.nl', 

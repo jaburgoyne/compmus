@@ -157,15 +157,18 @@ compmus_long_distance <- function(xdat, ydat, feature, method = "euclidean") {
   ## Function selection
 
   if (!is.na(i <- pmatch(method, names(METHODS)))) {
-    dplyr::bind_cols(
-      tidyr::crossing(
-        xdat %>% dplyr::select(xstart = start, xduration = duration),
-        ydat %>% dplyr::select(ystart = start, yduration = duration)
-      ),
-      xdat %>% dplyr::select(x = !!feature) %>%
-        tidyr::crossing(ydat %>% dplyr::select(y = !!feature)) %>%
-        dplyr::transmute(d = purrr::map2_dbl(x, y, METHODS[[i]]))
-    )
+    dplyr::full_join(
+      xdat %>%
+        dplyr::select(xstart = start, xduration = duration, x = !!feature),
+      ydat %>%
+        dplyr::select(ystart = start, yduration = duration, y = !!feature),
+      by = character()
+    ) %>%
+      dplyr::transmute(
+        xstart, xduration,
+        ystart, yduration,
+        d = purrr::map2_dbl(x, y, METHODS[[i]])
+      )
   } else {
     stop("The method name is ambiguous or the method is unsupported.")
   }
