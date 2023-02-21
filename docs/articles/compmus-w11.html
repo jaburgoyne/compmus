@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9008</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9009</span>
       </span>
     </div>
 
@@ -127,7 +127,7 @@ consistent manner.</p>
 <span><span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>      masks <span style="color: #0000BB;">stats</span>::lag()</span></span>
 <span><span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">yardstick</span>::<span style="color: #00BB00;">spec()</span> masks <span style="color: #0000BB;">readr</span>::spec()</span></span>
 <span><span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">recipes</span>::<span style="color: #00BB00;">step()</span>   masks <span style="color: #0000BB;">stats</span>::step()</span></span>
-<span><span class="co">## <span style="color: #0000BB;">•</span> Use <span style="color: #00BB00;">tidymodels_prefer()</span> to resolve common conflicts.</span></span></code></pre>
+<span><span class="co">## <span style="color: #0000BB;">•</span> Use suppressPackageStartupMessages() to eliminate package startup messages</span></span></code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/charlie86/spotifyr" class="external-link">spotifyr</a></span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## </span></span>
@@ -407,9 +407,9 @@ baseline and come back to it later.</p>
 <span>    <span class="fu">conf_mat</span><span class="op">(</span>truth <span class="op">=</span> <span class="va">playlist</span>, estimate <span class="op">=</span> <span class="va">.pred_class</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##                  Truth</span></span>
 <span><span class="co">## Prediction        Indie Party Indie Pop Indie x Running</span></span>
-<span><span class="co">##   Indie Party              10         7               7</span></span>
-<span><span class="co">##   Indie Pop                 3        11               6</span></span>
-<span><span class="co">##   Indie x Running           7         2               7</span></span></code></pre>
+<span><span class="co">##   Indie Party               7         8               6</span></span>
+<span><span class="co">##   Indie Pop                 4        10               7</span></span>
+<span><span class="co">##   Indie x Running           9         2               7</span></span></code></pre>
 <p>These matrices <code>autoplot</code> in two forms.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">indie_cv</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
@@ -432,9 +432,9 @@ J-measure.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span></span>
 <span><span class="co">##   .metric  .estimator .estimate</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass     0.467</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass     0.200</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro          0.2</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass       0.4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass       0.1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro            0.1</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="logistic-and-multinomial-regression">Logistic and Multinomial Regression<a class="anchor" aria-label="anchor" href="#logistic-and-multinomial-regression"></a>
@@ -464,9 +464,9 @@ You can adjust the penalty parameter if you are feeling adventurous.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span></span>
 <span><span class="co">##   .metric  .estimator .estimate</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass     0.483</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass     0.225</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro          0.225</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass     0.467</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass     0.2  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro          0.200</span></span></code></pre>
 <p>We can look at the most important features in the model by using the
 <code>coef</code> method.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
@@ -2808,9 +2808,9 @@ here.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span></span>
 <span><span class="co">##   .metric  .estimator .estimate</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass     0.433</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass     0.15 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro          0.15</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass      0.5 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass      0.25</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro           0.25</span></span></code></pre>
 <p>We can look at the whole tree with the <code>summary</code> command.
 Be careful not to read too much into the actual numerical values,
 however: remember that the features were standardised before we started
@@ -2829,7 +2829,7 @@ probably aren’t.</p>
 <span><span class="co">##  2, sample = 0))</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## C5.0 [Release 2.07 GPL Edition]      Tue Feb 21 23:46:29 2023</span></span>
+<span><span class="co">## C5.0 [Release 2.07 GPL Edition]      Wed Feb 22 00:26:02 2023</span></span>
 <span><span class="co">## -------------------------------</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Class specified by attribute `outcome'</span></span>
@@ -2909,9 +2909,9 @@ probably aren’t.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span></span>
 <span><span class="co">##   .metric  .estimator .estimate</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass     0.433</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass     0.15 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro          0.15</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass     0.483</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass     0.225</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro          0.225</span></span></code></pre>
 <p>Random forests give us the best-quality ranking of feature
 importance, and we can plot it with
 <code><a href="https://rdrr.io/pkg/randomForest/man/varImpPlot.html" class="external-link">randomForest::varImpPlot</a></code>. Again, it is clear that timbre,
@@ -2944,9 +2944,9 @@ the top features. We see much better results.</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span></span>
 <span><span class="co">##   .metric  .estimator .estimate</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass  3.33<span style="color: #949494;">e</span><span style="color: #BB0000;">- 1</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass  0   <span style="color: #949494;"> </span>   </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro       3.82<span style="color: #949494;">e</span><span style="color: #BB0000;">-17</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> accuracy multiclass    0.35  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> kap      multiclass    0.025<span style="text-decoration: underline;">0</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> j_index  macro         0.025<span style="text-decoration: underline;">0</span></span></span></code></pre>
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">indie_cv</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>pred <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="va">splits</span>, <span class="va">predict_knn_reduced</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">pred</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>

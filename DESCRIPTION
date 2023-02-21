@@ -1,7 +1,7 @@
 Package: compmus
 Type: Package
 Title: Support Functions for Computational Musicology
-Version: 0.0.0.9008
+Version: 0.0.0.9009
 Authors@R: person(
                c('John', 'Ashley'), 'Burgoyne', 
                email = 'j.a.burgoyne@uva.nl', 
@@ -13,17 +13,17 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     assertthat (>= 0.2),
-    dplyr (>= 1.0),
-    forcats (>= 0.5),
+    dplyr (>= 1.1),
+    forcats (>= 1.0),
     httr (>= 1.4),
     magrittr (>= 2.0),
-    purrr (>= 0.3),
-    rlang (>= 0.4),
+    purrr (>= 1.0),
+    rlang (>= 1.0),
     signal (>= 0.7),
-    spotifyr (>= 2.1),
-    stringr (>= 1.4),
-    tibble (>= 3.0),
-    tidyr (>= 1.1)
+    spotifyr (>= 2.2),
+    stringr (>= 1.5),
+    tibble (>= 3.1),
+    tidyr (>= 1.3)
 Suggests: 
     C50,
     ggdendro,
