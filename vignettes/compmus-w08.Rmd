@@ -4,7 +4,7 @@ author: "John Ashley Burgoyne"
 date: "20 February 2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Chroma Features}
+  %\VignetteIndexEntry{Week 8 · Chroma Features}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

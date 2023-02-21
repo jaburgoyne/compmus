@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,23 +33,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">compmus</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9008</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9008</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -81,13 +77,14 @@
 
       
 
-      </header><script src="compmus-w08_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Week 8 · Chroma Features</h1>
-                        <h4 class="author">John Ashley Burgoyne</h4>
+                        <h4 data-toc-skip class="author">John Ashley
+Burgoyne</h4>
             
-            <h4 class="date">20 February 2019</h4>
+            <h4 data-toc-skip class="date">20 February 2019</h4>
       
       
       <div class="hidden name"><code>compmus-w08.Rmd</code></div>
@@ -96,66 +93,99 @@
 
     
     
-<p>Welcome to your first R Markdown file of Computational Musicology! RStudio has made a helpful <a href="https://github.com/rstudio/cheatsheets/blob/master/rmarkdown-2.0.pdf">cheat sheet</a> you can use to learn more about all of the features of R Markdown.</p>
-<div id="set-up" class="section level2">
-<h2 class="hasAnchor">
-<a href="#set-up" class="anchor"></a>Set-up</h2>
+<p>Welcome to your first R Markdown file of Computational Musicology!
+RStudio has made a helpful <a href="https://github.com/rstudio/cheatsheets/blob/master/rmarkdown-2.0.pdf" class="external-link">cheat
+sheet</a> you can use to learn more about all of the features of R
+Markdown.</p>
+<div class="section level2">
+<h2 id="set-up">Set-up<a class="anchor" aria-label="anchor" href="#set-up"></a>
+</h2>
 <p>We begin by loading the libraries we need for analysis.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-## ✓ tibble  3.0.6     ✓ dplyr   1.0.4
-## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.2 ──</span></span>
+<span><span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2</span> 3.4.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr  </span> 1.0.1</span></span>
+<span><span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble </span> 3.1.8     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr  </span> 1.1.0</span></span>
+<span><span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr  </span> 1.3.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr</span> 1.5.0</span></span>
+<span><span class="co">## <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr  </span> 2.1.4     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats</span> 1.0.0</span></span>
+<span><span class="co">## ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span> masks <span style="color: #0000BB;">stats</span>::filter()</span></span>
+<span><span class="co">## <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>    masks <span style="color: #0000BB;">stats</span>::lag()</span></span></code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/charlie86/spotifyr" class="external-link">spotifyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">compmus</span><span class="op">)</span></span></code></pre></div>
+<p>In order for the code below to run, it is also necessary to set up
+Spotify login credentials for <code>spotifyr</code>.</p>
+</div>
+<div class="section level2">
+<h2 id="chromagrams">Chromagrams<a class="anchor" aria-label="anchor" href="#chromagrams"></a>
+</h2>
+<p>One of the helper functions this week,
+<code>get_tidy_audio_analysis</code>, does just what it says, for one
+track at a time. Spotify’s audio analysis is thorough, and basic <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/" class="external-link">documentation</a>
+is available for everything in it.</p>
+<p>Let’s pull down the analysis of a recording of Steve Reich’s ‘Music
+for Pieces of Wood’ (well worth a listen if you don’t know the piece).
+For reasons that will become clearer next week, one needs to
+<code>select</code> the desired field out of the analysis – in this
+case, <code>segments</code> – and then <code>unnest</code> it.</p>
+<p>Spotify segments have a lot of information inside them, but this
+week, we’ll focus just on <code>start</code>, <code>duration</code>, and
+<code>pitches</code>: the three tools we need to make a chromagram.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">wood</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'6IQILcYkN2S2eSu5IHoPEH'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span></code></pre></div>
+<p>The key to making a chromogram is <code>geom_tile</code>. It is
+powerful but has it’s wrinkles. Much of the code in the next block is
+code that you will simply need to copy every time you use it; next week
+we’ll develop a better understanding of what is going on.</p>
+<p>First, we want to choose a normalisation for the chroma vectors:
+Manhattan, Euclidean, or Chebyshev, using the new helper function
+<code>compmus_normalise</code> (with a little help from the
+<code>map</code> function, which we’ll see more of next week). <em>The
+name of the normalisation is the only thing in that line of code that
+you need to change.</em></p>
+<p>Then we need to convert the data to so-called long format: a new row
+for each pitch class. There is a helper function
+<code>compmus_gather_chroma</code> to do that.</p>
+<p>Finally we can plot, but beware that ggplot <em>centres</em> each
+tile on the <em>x</em> or <em>y</em> coordinate instead of using the
+left corner. Use the duration to make a correction for it.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/charlie86/spotifyr">spotifyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">compmus</span><span class="op">)</span></code></pre></div>
-<p>In order for the code below to run, it is also necessary to set up Spotify login credentials for <code>spotifyr</code>.</p>
-</div>
-<div id="chromagrams" class="section level2">
-<h2 class="hasAnchor">
-<a href="#chromagrams" class="anchor"></a>Chromagrams</h2>
-<p>One of the helper functions this week, <code>get_tidy_audio_analysis</code>, does just what it says, for one track at a time. Spotify’s audio analysis is thorough, and basic <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/">documentation</a> is available for everything in it.</p>
-<p>Let’s pull down the analysis of a recording of Steve Reich’s ‘Music for Pieces of Wood’ (well worth a listen if you don’t know the piece). For reasons that will become clearer next week, one needs to <code>select</code> the desired field out of the analysis – in this case, <code>segments</code> – and then <code>unnest</code> it.</p>
-<p>Spotify segments have a lot of information inside them, but this week, we’ll focus just on <code>start</code>, <code>duration</code>, and <code>pitches</code>: the three tools we need to make a chromagram.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">wood</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'6IQILcYkN2S2eSu5IHoPEH'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></code></pre></div>
-<p>The key to making a chromogram is <code>geom_tile</code>. It is powerful but has it’s wrinkles. Much of the code in the next block is code that you will simply need to copy every time you use it; next week we’ll develop a better understanding of what is going on.</p>
-<p>First, we want to choose a normalisation for the chroma vectors: Manhattan, Euclidean, or Chebyshev, using the new helper function <code>compmus_normalise</code> (with a little help from the <code>map</code> function, which we’ll see more of next week). <em>The name of the normalisation is the only thing in that line of code that you need to change.</em></p>
-<p>Then we need to convert the data to so-called long format: a new row for each pitch class. There is a helper function <code>compmus_gather_chroma</code> to do that.</p>
-<p>Finally we can plot, but beware that ggplot <em>centres</em> each tile on the <em>x</em> or <em>y</em> coordinate instead of using the left corner. Use the duration to make a correction for it.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">wood</span> <span class="op">%&gt;%</span> 
-    <span class="fu">mutate</span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'euclidean'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="va">compmus_gather_chroma</span> <span class="op">%&gt;%</span> 
-    <span class="fu">ggplot</span><span class="op">(</span>
-        <span class="fu">aes</span><span class="op">(</span>
-            x <span class="op">=</span> <span class="va">start</span> <span class="op">+</span> <span class="va">duration</span> <span class="op">/</span> <span class="fl">2</span>, 
-            width <span class="op">=</span> <span class="va">duration</span>, 
-            y <span class="op">=</span> <span class="va">pitch_class</span>, 
-            fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu">geom_tile</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">'Time (s)'</span>, y <span class="op">=</span> <span class="cn">NULL</span>, fill <span class="op">=</span> <span class="st">'Magnitude'</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">wood</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'euclidean'</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="va">compmus_gather_chroma</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
+<span>            x <span class="op">=</span> <span class="va">start</span> <span class="op">+</span> <span class="va">duration</span> <span class="op">/</span> <span class="fl">2</span>, </span>
+<span>            width <span class="op">=</span> <span class="va">duration</span>, </span>
+<span>            y <span class="op">=</span> <span class="va">pitch_class</span>, </span>
+<span>            fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">'Time (s)'</span>, y <span class="op">=</span> <span class="cn">NULL</span>, fill <span class="op">=</span> <span class="st">'Magnitude'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="compmus-w08_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
-<div id="your-turn" class="section level3">
-<h3 class="hasAnchor">
-<a href="#your-turn" class="anchor"></a>Your turn</h3>
-<p>What is going on here? Try a different normalisation – and then try a different piece!</p>
+<div class="section level3">
+<h3 id="your-turn">Your turn<a class="anchor" aria-label="anchor" href="#your-turn"></a>
+</h3>
+<p>What is going on here? Try a different normalisation – and then try a
+different piece!</p>
 </div>
 </div>
-<div id="dynamic-time-warping" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dynamic-time-warping" class="anchor"></a>Dynamic Time Warping</h2>
-<p>In order to take the step from chromagrams to <a href="https://www.youtube.com/watch?time_continue=62&amp;v=gsYhDp2VXMo">dynamic time warping</a>, we need to choose an appropriate distance. Distance metrics usually form conceptual pairs with norms, although there are no standard distance metrics to use after Chebyshev normalisation.</p>
-<p>Both Aitchison and angular distances have solid theoretical underpinning for chroma vectors. The Manhattan (a.k.a. <em>total variation distance</em> in this case) and the cosine pseudo-distance are faster to compute and are often good enough. The cosine distance, in particular, is extremely popular in practice.</p>
+<div class="section level2">
+<h2 id="dynamic-time-warping">Dynamic Time Warping<a class="anchor" aria-label="anchor" href="#dynamic-time-warping"></a>
+</h2>
+<p>In order to take the step from chromagrams to <a href="https://www.youtube.com/watch?time_continue=62&amp;v=gsYhDp2VXMo" class="external-link">dynamic
+time warping</a>, we need to choose an appropriate distance. Distance
+metrics usually form conceptual pairs with norms, although there are no
+standard distance metrics to use after Chebyshev normalisation.</p>
+<p>Both Aitchison and angular distances have solid theoretical
+underpinning for chroma vectors. The Manhattan (a.k.a. <em>total
+variation distance</em> in this case) and the cosine pseudo-distance are
+faster to compute and are often good enough. The cosine distance, in
+particular, is extremely popular in practice.</p>
 <table class="table">
 <thead><tr class="header">
 <th>Domain</th>
@@ -190,77 +220,90 @@
 </tr>
 </tbody>
 </table>
-<p>Let’s look at seven recordings of Josquin des Prez’s ‘Ave Maria’. The comment lines break them down into three pitch levels.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tallis</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'2J3Mmybwue0jyQ0UVMYurH'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
-<span class="va">chapelle</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'4ccw2IcnFt1Jv9LqQCOYDi'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
-<span class="va">cambridge</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'54cAT1TCFaZbLOB2i1y61h'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
-
-<span class="co">###</span>
-
-<span class="va">oxford</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'5QyUsMY40MQ1VebZXSaonU'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
-<span class="va">chanticleer</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'1bocG1N8LM7MSgj9T1n3XH'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
-
-<span class="co">###</span>
-
-<span class="va">hilliard</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'2rXEyq50luqaFNC9DkcU6k'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span>
-<span class="va">gabrieli</span> <span class="op">&lt;-</span> 
-    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'4NnJ4Jes8a8mQUfXhwuITx'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">unnest</span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">select</span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></code></pre></div>
-<p>The <code>compmus_long_distance</code> helper function gets everything ready for <code>geom_tile</code>. It takes two data frames (don’t forget to normalise the chroma vectors), the feature we want to compute distance over (<code>pitches</code> in our case), and any of the distance measures in the table above. It returns a long table ready for plotting, with <code>xstart</code>, <code>xduration</code>, <code>ystart</code>, and <code>yduration</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/compmus_long_distance.html">compmus_long_distance</a></span><span class="op">(</span>
-    <span class="va">tallis</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'chebyshev'</span><span class="op">)</span><span class="op">)</span>,
-    <span class="va">chapelle</span> <span class="op">%&gt;%</span> <span class="fu">mutate</span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'chebyshev'</span><span class="op">)</span><span class="op">)</span>,
-    feature <span class="op">=</span> <span class="va">pitches</span>,
-    method <span class="op">=</span> <span class="st">'euclidean'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-    <span class="fu">ggplot</span><span class="op">(</span>
-        <span class="fu">aes</span><span class="op">(</span>
-            x <span class="op">=</span> <span class="va">xstart</span> <span class="op">+</span> <span class="va">xduration</span> <span class="op">/</span> <span class="fl">2</span>, 
-            width <span class="op">=</span> <span class="va">xduration</span>,
-            y <span class="op">=</span> <span class="va">ystart</span> <span class="op">+</span> <span class="va">yduration</span> <span class="op">/</span> <span class="fl">2</span>,
-            height <span class="op">=</span> <span class="va">yduration</span>,
-            fill <span class="op">=</span> <span class="va">d</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="fu">geom_tile</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">scale_fill_continuous</span><span class="op">(</span>type <span class="op">=</span> <span class="st">'viridis'</span>, guide <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">'The Tallis Scholars'</span>, y <span class="op">=</span> <span class="st">'La Chapelle Royale'</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Let’s look at seven recordings of Josquin des Prez’s ‘Ave Maria’. The
+comment lines break them down into three pitch levels.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tallis</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'2J3Mmybwue0jyQ0UVMYurH'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span>
+<span><span class="va">chapelle</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'4ccw2IcnFt1Jv9LqQCOYDi'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span>
+<span><span class="va">cambridge</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'54cAT1TCFaZbLOB2i1y61h'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">###</span></span>
+<span></span>
+<span><span class="va">oxford</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'5QyUsMY40MQ1VebZXSaonU'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span>
+<span><span class="va">chanticleer</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'1bocG1N8LM7MSgj9T1n3XH'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">###</span></span>
+<span></span>
+<span><span class="va">hilliard</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'2rXEyq50luqaFNC9DkcU6k'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span>
+<span><span class="va">gabrieli</span> <span class="op">&lt;-</span> </span>
+<span>    <span class="fu"><a href="../reference/get_tidy_audio_analysis.html">get_tidy_audio_analysis</a></span><span class="op">(</span><span class="st">'4NnJ4Jes8a8mQUfXhwuITx'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html" class="external-link">unnest</a></span><span class="op">(</span><span class="va">segments</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">start</span>, <span class="va">duration</span>, <span class="va">pitches</span><span class="op">)</span></span></code></pre></div>
+<p>The <code>compmus_long_distance</code> helper function gets
+everything ready for <code>geom_tile</code>. It takes two data frames
+(don’t forget to normalise the chroma vectors), the feature we want to
+compute distance over (<code>pitches</code> in our case), and any of the
+distance measures in the table above. It returns a long table ready for
+plotting, with <code>xstart</code>, <code>xduration</code>,
+<code>ystart</code>, and <code>yduration</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/compmus_long_distance.html">compmus_long_distance</a></span><span class="op">(</span></span>
+<span>    <span class="va">tallis</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'chebyshev'</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    <span class="va">chapelle</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>pitches <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map</a></span><span class="op">(</span><span class="va">pitches</span>, <span class="va">compmus_normalise</span>, <span class="st">'chebyshev'</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    feature <span class="op">=</span> <span class="va">pitches</span>,</span>
+<span>    method <span class="op">=</span> <span class="st">'euclidean'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span></span>
+<span>            x <span class="op">=</span> <span class="va">xstart</span> <span class="op">+</span> <span class="va">xduration</span> <span class="op">/</span> <span class="fl">2</span>, </span>
+<span>            width <span class="op">=</span> <span class="va">xduration</span>,</span>
+<span>            y <span class="op">=</span> <span class="va">ystart</span> <span class="op">+</span> <span class="va">yduration</span> <span class="op">/</span> <span class="fl">2</span>,</span>
+<span>            height <span class="op">=</span> <span class="va">yduration</span>,</span>
+<span>            fill <span class="op">=</span> <span class="va">d</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_continuous</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">'viridis'</span>, guide <span class="op">=</span> <span class="st">'none'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">'The Tallis Scholars'</span>, y <span class="op">=</span> <span class="st">'La Chapelle Royale'</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="compmus-w08_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
-<div id="your-turn-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#your-turn-1" class="anchor"></a>Your turn</h3>
-<p>What’s going on here? Try different distance metrics to see what works best.</p>
-<p>How do the patterns change if you compare recordings at two different pitch levels?</p>
-<p>Are there any recordings in your corpus for which this technique could work? Do you think it would work with cover songs?</p>
+<div class="section level3">
+<h3 id="your-turn-1">Your turn<a class="anchor" aria-label="anchor" href="#your-turn-1"></a>
+</h3>
+<p>What’s going on here? Try different distance metrics to see what
+works best.</p>
+<p>How do the patterns change if you compare recordings at two different
+pitch levels?</p>
+<p>Are there any recordings in your corpus for which this technique
+could work? Do you think it would work with cover songs?</p>
 </div>
-<div id="advanced-work" class="section level3">
-<h3 class="hasAnchor">
-<a href="#advanced-work" class="anchor"></a>Advanced work</h3>
-<p>If you want to compute actual alignments, look into the R <a href="https://cran.r-project.org/web/packages/dtw/index.html">dtw package</a>.</p>
+<div class="section level3">
+<h3 id="advanced-work">Advanced work<a class="anchor" aria-label="anchor" href="#advanced-work"></a>
+</h3>
+<p>If you want to compute actual alignments, look into the R <a href="https://cran.r-project.org/web/packages/dtw/index.html" class="external-link">dtw
+package</a>.</p>
 </div>
-<div id="warning" class="section level3">
-<h3 class="hasAnchor">
-<a href="#warning" class="anchor"></a>WARNING</h3>
-<p>The output of <code>geom_tile</code> can be very large if sent through <code>ggplotly</code>. You may need to make these visualisations static.</p>
+<div class="section level3">
+<h3 id="warning">WARNING<a class="anchor" aria-label="anchor" href="#warning"></a>
+</h3>
+<p>The output of <code>geom_tile</code> can be very large if sent
+through <code>ggplotly</code>. You may need to make these visualisations
+static.</p>
 </div>
 </div>
   </div>
@@ -276,11 +319,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by John Ashley Burgoyne.</p>
+  <p></p>
+<p>Developed by John Ashley Burgoyne.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -288,6 +333,8 @@
 
   
 
+
+  
 
   </body>
 </html>

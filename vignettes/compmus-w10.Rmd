@@ -4,7 +4,7 @@ author: "John Ashley Burgoyne"
 date: "6 March 2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Key and Chord Estimation}
+  %\VignetteIndexEntry{Week 10 · Key and Chord Estimation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

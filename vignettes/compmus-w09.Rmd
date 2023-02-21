@@ -4,7 +4,7 @@ author: "John Ashley Burgoyne"
 date: "27 February 2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Structure Analysis}
+  %\VignetteIndexEntry{Week 9 · Structure Analysis · Self-Similarity Matrices}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

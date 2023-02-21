@@ -4,7 +4,7 @@ author: "John Ashley Burgoyne"
 date: "20 March 2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Similarity and Clustering}
+  %\VignetteIndexEntry{Week 12 · Similarity and Clustering}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

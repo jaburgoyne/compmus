@@ -4,7 +4,7 @@ author: "John Ashley Burgoyne"
 date: "13 March 2019"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Classification}
+  %\VignetteIndexEntry{Week 11 · Classification}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -125,7 +125,7 @@ graveola %>%
 
 ## Classification
 
-In order to demonstrate some of the principles of classification, we will try to identify some of the features that Spotify uses to designate playlists as 'workout' playlists. For a full analysis, we would need to delve deeper, but let's start with a comparison of three playlists: Indie Pop, Indie Party, and Indie Workout. For speed, this example will work with only the first 20 songs from each playlist, but you should feel free to use more if your computer can handle it.
+In order to demonstrate some of the principles of classification, we will try to identify some of the features that Spotify uses to designate playlists as 'workout' playlists. For a full analysis, we would need to delve deeper, but let's start with a comparison of three playlists: Indie Pop, Indie Party, and Indie Running. For speed, this example will work with only the first 20 songs from each playlist, but you should feel free to use more if your computer can handle it.
 
 ```{r}
 pop <- 
@@ -137,7 +137,7 @@ party <-
     slice(1:20) %>% 
     add_audio_analysis
 workout <- 
-    get_playlist_audio_features('spotify', '37i9dQZF1DXaRL7xbcDl7X') %>% 
+    get_playlist_audio_features('spotify', '37i9dQZF1DWZq91oLsHZvy') %>% 
     slice(1:20) %>% 
     add_audio_analysis
 ```
@@ -156,7 +156,7 @@ indie <-
     pop %>% mutate(playlist = "Indie Pop") %>% 
     bind_rows(
         party %>% mutate(playlist = "Indie Party"),
-        workout %>% mutate(playlist = "Indie Workout")) %>% 
+        workout %>% mutate(playlist = "Indie x Running")) %>% 
     mutate(playlist = factor(playlist)) %>% 
     mutate(
         segments = 
