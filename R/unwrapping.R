@@ -10,7 +10,14 @@ compmus_gather_chroma <- function(dat) {
     dplyr::mutate(pitches = purrr::map(pitches, dplyr::bind_rows)) |>
     tidyr::unnest(pitches) |>
     tidyr::gather("pitch_class", "value", C:B) |>
-    dplyr::mutate(pitch_class = forcats::fct_shift(factor(pitch_class), 3))
+    dplyr::mutate(
+      pitch_class =
+        factor(
+          pitch_class,
+          levels = c("C", "C#", "D", "Eb", "E", "F",
+                     "F#", "G", "Ab", "A", "Bb", "B")
+        )
+    )
 }
 
 #' @describeIn compmus_gather_chroma Gather chroma/timbre vectors
