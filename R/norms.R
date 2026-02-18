@@ -132,12 +132,12 @@ compmus_long_distance <- function(xdat, ydat, feature, method = "euclidean") {
 
   if (!is.na(i <- pmatch(method, names(METHODS)))) {
     dplyr::full_join(
-      xdat %>%
+      xdat |>
         dplyr::select(xstart = start, xduration = duration, x = !!feature),
-      ydat %>%
+      ydat |>
         dplyr::select(ystart = start, yduration = duration, y = !!feature),
       by = character()
-    ) %>%
+    ) |>
       dplyr::transmute(
         xstart, xduration,
         ystart, yduration,
@@ -176,11 +176,11 @@ compmus_self_similarity <- function(dat, feature, method = "euclidean") {
 #' @export
 compmus_match_pitch_template <- function(dat, templates, method = "cosine", norm = "euclidean") {
   compmus_long_distance(
-    dat %>%
+    dat |>
       dplyr::mutate(
         pitches = purrr::map(pitches, compmus_normalise, norm)
       ),
-    templates %>%
+    templates |>
       dplyr::transmute(
         start = name,
         duration = 1,
@@ -188,7 +188,7 @@ compmus_match_pitch_template <- function(dat, templates, method = "cosine", norm
       ),
     feature = pitches,
     method = method
-  ) %>%
+  ) |>
     dplyr::transmute(
       start = xstart,
       duration = xduration,

@@ -6,20 +6,19 @@
 #'
 #' @export
 compmus_gather_chroma <- function(dat) {
-  dat %>%
-    dplyr::mutate(pitches = purrr::map(pitches, dplyr::bind_rows)) %>%
-    tidyr::unnest(pitches) %>%
-    tidyr::gather("pitch_class", "value", C:B) %>%
+  dat |>
+    dplyr::mutate(pitches = purrr::map(pitches, dplyr::bind_rows)) |>
+    tidyr::unnest(pitches) |>
+    tidyr::gather("pitch_class", "value", C:B) |>
     dplyr::mutate(pitch_class = forcats::fct_shift(factor(pitch_class), 3))
 }
 
 #' @describeIn compmus_gather_chroma Gather chroma/timbre vectors
-#' @importFrom magrittr %>%
 #' @export
 compmus_gather_timbre <- function(dat) {
-  dat %>%
-    dplyr::mutate(timbre = purrr::map(timbre, dplyr::bind_rows)) %>%
-    tidyr::unnest(timbre) %>%
+  dat |>
+    dplyr::mutate(timbre = purrr::map(timbre, dplyr::bind_rows)) |>
+    tidyr::unnest(timbre) |>
     tidyr::gather("basis", "value", c01:c12)
 }
 
@@ -35,7 +34,6 @@ compmus_gather_timbre <- function(dat) {
 #'   vectors.
 #' @param key Character string naming the global or local tonal centre.
 #'
-#' @importFrom magrittr %>%
 #' @export
 compmus_c_transpose <- function(dat, key) {
   KEY_SHIFTS <-
@@ -59,13 +57,13 @@ compmus_c_transpose <- function(dat, key) {
       B = -11
     )
   key <- ifelse(is_character(key), KEY_SHIFTS[[key]], -key)
-  dat %>%
+  dat |>
     dplyr::mutate(
       pitches =
         purrr::map(
           pitches,
-          . %>%
-            .circshift(key) %>%
+          . |>
+            .circshift(key) |>
             purrr::set_names(
               c(
                 "C", "C#|Db", "D", "D#|Eb",

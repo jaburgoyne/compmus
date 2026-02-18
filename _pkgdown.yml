@@ -1,8 +1,15 @@
+url: https://jaburgoyne.github.io/compmus/
+
 template:
+    bootstrap: 5
     params:
         bootswatch: flatly
 
 reference:
+  - title: Data Wrangling
+    desc: ~
+    contents:
+      - '`compmus_wrangle_chroma`'
   - title: Norms and Distances
     desc: ~
     contents:

@@ -1,0 +1,5 @@
+# License
+
+    YEAR: 2026
+    COPYRIGHT HOLDER: John Ashley Burgoyne
+    ORGANIZATION: University of Amsterdam
