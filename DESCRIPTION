@@ -1,13 +1,13 @@
 Package: compmus
 Type: Package
 Title: Support Functions for Computational Musicology
-Version: 0.0.0.9009
+Version: 0.0.0.9100
 Authors@R: person(
-               c('John', 'Ashley'), 'Burgoyne', 
-               email = 'j.a.burgoyne@uva.nl', 
+               c('John', 'Ashley'), 'Burgoyne',
+               email = 'j.a.burgoyne@uva.nl',
                role = c('aut', 'cre'))
 Description: Extra functions to facilitate student projects for the author's
-    Computational Musicology course. 
+    Computational Musicology course.
 License: BSD_3_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -20,19 +20,7 @@ Imports:
     purrr (>= 1.0),
     rlang (>= 1.0),
     signal (>= 0.7),
-    spotifyr (>= 2.2),
     stringr (>= 1.5),
     tibble (>= 3.1),
     tidyr (>= 1.3)
-Suggests: 
-    C50,
-    ggdendro,
-    kknn,
-    knitr,
-    protoclust,
-    randomForest,
-    rmarkdown,
-    tidymodels,
-    tidyverse
-VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.3

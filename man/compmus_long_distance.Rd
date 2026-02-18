@@ -40,23 +40,6 @@ distance.} \item{\code{aitchison}}{Aitchison distance.} }
 }
 \section{Functions}{
 \itemize{
-\item \code{compmus_self_similarity}: Self-similarity matrices in long format
+\item \code{compmus_self_similarity()}: Self-similarity matrices in long format
+
 }}
-
-\examples{
-library(tidyverse)
-tallis <-
-  get_tidy_audio_analysis("2J3Mmybwue0jyQ0UVMYurH") \%>\%
-  select(segments) \%>\%
-  unnest(segments) \%>\%
-  mutate(pitches = map(pitches, compmus_normalise, "manhattan"))
-chapelle <-
-  get_tidy_audio_analysis("4ccw2IcnFt1Jv9LqQCOYDi") \%>\%
-  select(segments) \%>\%
-  unnest(segments) \%>\%
-  mutate(pitches = map(pitches, compmus_normalise, "manhattan"))
-
-compmus_long_distance(tallis, chapelle, pitches, method = "euclidean")
-
-compmus_self_similarity(tallis, pitches, method = "aitchison")
-}

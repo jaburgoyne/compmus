@@ -33,13 +33,6 @@ The following methods are supported.
 }
 \section{Functions}{
 \itemize{
-\item \code{compmus_normalize}: Normalize vectors
-}}
+\item \code{compmus_normalize()}: Normalise vectors
 
-\examples{
-library(tidyverse)
-get_tidy_audio_analysis("6IQILcYkN2S2eSu5IHoPEH") \%>\%
-  select(segments) \%>\%
-  unnest(segments) \%>\%
-  mutate(pitches = map(pitches, compmus_normalise, "euclidean"))
-}
+}}

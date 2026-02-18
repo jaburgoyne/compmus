@@ -3,23 +3,12 @@ template:
         bootswatch: flatly
 
 reference:
-  - title: Spotify Audio Analysis
-    desc: ~
-    contents:
-      - '`get_tidy_audio_analysis`'
-      - '`add_audio_analysis`'
-      - '`tempogram`'
   - title: Norms and Distances
     desc: ~
     contents:
       - '`compmus_normalise`'
       - '`compmus_long_distance`'
       - '`compmus_match_pitch_template`'
-  - title: Summarisation
-    desc: ~
-    contents:
-      - '`compmus_align`'
-      - '`compmus_summarise`'
   - title: Unwrapping
     desc: ~
     contents:
