@@ -15,6 +15,7 @@ year.
 ## Data Wrangling
 
 - [`compmus_wrangle_chroma()`](https://jaburgoyne.github.io/compmus/reference/compmus_wrangle_chroma.md)
+  [`compmus_wrangle_timbre()`](https://jaburgoyne.github.io/compmus/reference/compmus_wrangle_chroma.md)
   : Wrangle chroma/timbre vectors
 
 ## Norms and Distances

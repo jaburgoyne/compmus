@@ -7,6 +7,8 @@ Visualiser into a nested format for further processing.
 
 ``` r
 compmus_wrangle_chroma(dat)
+
+compmus_wrangle_timbre(dat)
 ```
 
 ## Arguments
@@ -15,3 +17,7 @@ compmus_wrangle_chroma(dat)
 
   Data frame from Sonic Visualiser based on a chroma- or cepstrogram
   layer.
+
+## Functions
+
+- `compmus_wrangle_timbre()`: Wrangle chroma/timbre vectors

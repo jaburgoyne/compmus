@@ -2,9 +2,12 @@
 % Please edit documentation in R/wrangling.R
 \name{compmus_wrangle_chroma}
 \alias{compmus_wrangle_chroma}
+\alias{compmus_wrangle_timbre}
 \title{Wrangle chroma/timbre vectors}
 \usage{
 compmus_wrangle_chroma(dat)
+
+compmus_wrangle_timbre(dat)
 }
 \arguments{
 \item{dat}{Data frame from Sonic Visualiser based on a chroma- or cepstrogram
@@ -14,3 +17,8 @@ layer.}
 These functions gather chroma or timbre data frames from Sonic Visualiser
 into a nested format for further processing.
 }
+\section{Functions}{
+\itemize{
+\item \code{compmus_wrangle_timbre()}: Wrangle chroma/timbre vectors
+
+}}

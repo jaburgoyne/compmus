@@ -26,7 +26,7 @@ compmus_gather_timbre <- function(dat) {
   dat |>
     dplyr::mutate(timbre = purrr::map(timbre, dplyr::bind_rows)) |>
     tidyr::unnest(timbre) |>
-    tidyr::gather("basis", "value", c01:c12)
+    tidyr::gather("mfcc", "value", mfcc_01:mfcc_21)
 }
 
 .circshift <- function(v, n) {
