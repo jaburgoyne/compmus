@@ -32,5 +32,6 @@ compmus_wrangle_timbre <- function(dat) {
       \(x) sprintf("mfcc_%02d", as.integer(stringr::str_extract(x, "\\d+"))),
       tidyselect::starts_with("BIN")
     ) |>
-    tidyr::nest(timbre = mfcc_01:mfcc_21)
+    dplyr::select(-mfcc_01) |>
+    tidyr::nest(timbre = mfcc_02:mfcc_21)
 }
